@@ -18,6 +18,7 @@ public class LevelGameManager : MonoBehaviour
     [SerializeField] private TMP_InputField nameInput;
 
     [SerializeField] private GameObject inGameUICanvas;
+    [SerializeField] private GameObject gameOverMenuCanvas;
     [SerializeField] private GameObject gameOverCanvas;
     [SerializeField] private GameObject highscoreCanvas;
     [SerializeField] private GameObject leaderboardCanvas;
@@ -45,7 +46,7 @@ public class LevelGameManager : MonoBehaviour
     private void OnSubmitButtonClick()
     {
         AudioManager.instance.PlaySFX(clickSFX);
-        if (SetName() != null)
+        if (SetName() != string.Empty)
         {
             string nameText = SetName();
             int score = ScoreManager.instance.GetCurrentScore();
@@ -57,19 +58,25 @@ public class LevelGameManager : MonoBehaviour
                 Leaderboard.instance.AddScoreAtEnd(nameText, score);
             highscoreCanvas.SetActive(false);
             
-            gameOverCanvas.SetActive(true);
+            gameOverMenuCanvas.SetActive(true);
             currentScore.text = ScoreManager.instance.GetCurrentScore().ToString();
 
         }
 
     }
 
-    public void OnGameOver()
+    public void RunGameOverCoroutine()
     {
-        AudioManager.instance.StopBGSound();
-        
+        StartCoroutine(GameOver());
+    }
+
+    private void OnGameOver()
+    {
         PlayerController.instance.enabled = false;
         inGameUICanvas.SetActive(false);
+
+        
+
         if ((Leaderboard.instance.GetEntryCount() < 8 && ScoreManager.instance.GetCurrentScore() != 0) ||
             (Leaderboard.instance.GetEntryCount() == 8 && ScoreManager.instance.GetCurrentScore() > Leaderboard.instance.GetLowestScore()))
         {
@@ -82,10 +89,20 @@ public class LevelGameManager : MonoBehaviour
         {
             currentScore.text = ScoreManager.instance.GetCurrentScore().ToString();
             highscoreCanvas.SetActive(false);
-            gameOverCanvas.SetActive(true);
-            AudioManager.instance.PlaySFX(gameOverSFX);
+            gameOverMenuCanvas.SetActive(true);
+            
         }
 
+    }
+
+    IEnumerator GameOver()
+    {
+        AudioManager.instance.StopBGSound();
+        AudioManager.instance.PlaySFX(gameOverSFX);
+        gameOverCanvas.SetActive(true);
+        yield return new WaitForSeconds(2f);
+        gameOverCanvas.SetActive(false);
+        OnGameOver();
     }
 
     private void OnEnable()
@@ -123,7 +140,7 @@ public class LevelGameManager : MonoBehaviour
     private void BuildLeaderboard()
     {
         AudioManager.instance.PlaySFX(clickSFX);
-        gameOverCanvas.SetActive(false);
+        gameOverMenuCanvas.SetActive(false);
         highscoreCanvas.SetActive(false);
         leaderboardCanvas.SetActive(true);
         //Leaderboard.instance.ClearScoresFromJson();

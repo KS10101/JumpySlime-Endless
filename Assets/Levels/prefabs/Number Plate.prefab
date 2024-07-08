@@ -95,7 +95,7 @@ Transform:
   m_Children:
   - {fileID: 4831444664895751787}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &241198252800247641
 MeshFilter:
@@ -114,7 +114,7 @@ MeshRenderer:
   m_GameObject: {fileID: 7031206379436138525}
   m_Enabled: 1
   m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_ReceiveShadows: 0
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
   m_MotionVectors: 1
@@ -125,7 +125,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 215c8a348de394345afde515d84980ed, type: 2}
+  - {fileID: 2100000, guid: 47f49393e609fa14693af30a536b6090, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

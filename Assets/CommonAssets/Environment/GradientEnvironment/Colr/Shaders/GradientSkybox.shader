@@ -1,6 +1,4 @@
-﻿// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
-
-Shader "Colr/Gradient Skybox" {
+﻿Shader "Colr/Gradient Skybox" {
 
     Properties {
         _Color2 ("Top Color", Color) = (0.97, 0.67, 0.51, 0)
@@ -20,16 +18,22 @@ Shader "Colr/Gradient Skybox" {
 
     CGINCLUDE
 
+    #pragma multi_compile_instancing
+    #pragma multi_compile _ DOTS_INSTANCING_ON
+
     #include "UnityCG.cginc"
 
     struct appdata {
         float4 position : POSITION;
         float3 texcoord : TEXCOORD0;
+		UNITY_VERTEX_INPUT_INSTANCE_ID
     };
     
     struct v2f {
         float4 position : SV_POSITION;
         float3 texcoord : TEXCOORD0;
+	    UNITY_VERTEX_INPUT_INSTANCE_ID
+	    UNITY_VERTEX_OUTPUT_STEREO
     };
     
     half4 _Color1;
@@ -40,13 +44,21 @@ Shader "Colr/Gradient Skybox" {
     
     v2f vert (appdata v) {
         v2f o;
+
+        UNITY_SETUP_INSTANCE_ID(v);
+        UNITY_TRANSFER_INSTANCE_ID(v, o);
+		UNITY_INITIALIZE_VERTEX_OUTPUT_STEREO(o);
+
         o.position = UnityObjectToClipPos(v.position);
         o.texcoord = v.texcoord;
         return o;
     }
     
     fixed4 frag (v2f i) : COLOR {
-        half d = dot(normalize(i.texcoord), _Direction) * 0.5f + 0.5f;
+		UNITY_SETUP_INSTANCE_ID(i);
+		UNITY_SETUP_STEREO_EYE_INDEX_POST_VERTEX(i);
+
+        const half d = dot(normalize(i.texcoord), _Direction) * 0.5f + 0.5f;
         return lerp (_Color1, _Color2, pow(d, _Exponent)) * _Intensity;
     }
 

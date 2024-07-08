@@ -29,7 +29,7 @@ public class StreakManager : MonoBehaviour
         {
             streak = 0;
             PlayerController.instance.StopPlayer();
-            LevelGameManager.instance.OnGameOver();
+            LevelGameManager.instance.RunGameOverCoroutine();
         }
     }
 

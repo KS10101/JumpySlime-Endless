@@ -34,7 +34,7 @@ Transform:
   m_Children:
   - {fileID: 4333096229156352775}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &7475749538517245636
 MeshFilter:
@@ -546,10 +546,10 @@ MonoBehaviour:
     colliders: []
     _isRoot: 0
   bounds:
-    center: {x: 0, y: 2.7708447, z: 0.00000047683716}
+    center: {x: 0, y: 2.7708447, z: 0}
     extents: {x: 6.225244, y: 3.049155, z: 12.140003}
     max: {x: 6.225244, y: 5.8199997, z: 12.140003}
-    min: {x: -6.225244, y: -0.27831015, z: -12.140002}
+    min: {x: -6.225244, y: -0.27831015, z: -12.140003}
     size: {x: 12.450488, y: 6.09831, z: 24.280006}
   builders:
   - {fileID: 5268855979802403201}
@@ -620,9 +620,9 @@ MonoBehaviour:
   priority: 0
   m_BoostAmount: 2
   m_retardationAmount: 4
-  BaseMat: {fileID: 2100000, guid: 215c8a348de394345afde515d84980ed, type: 2}
-  RightOptionMat: {fileID: 2100000, guid: 992a614e1bfe22c41bf0c036963df87d, type: 2}
-  WrongOptionMat: {fileID: 2100000, guid: ef45d5e42b92ee944b61cff12485a87b, type: 2}
+  BaseMat: {fileID: 2100000, guid: 47f49393e609fa14693af30a536b6090, type: 2}
+  RightOptionMat: {fileID: 2100000, guid: ffa62f77d2f909d4d8828f8b7be506ae, type: 2}
+  WrongOptionMat: {fileID: 2100000, guid: 897e9ab553176244190d92766d313ce8, type: 2}
   CorrectOptionPoints: 5
   WrongOptionPoints: 2
   answered: 0
