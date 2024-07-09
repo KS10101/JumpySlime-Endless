@@ -72,10 +72,7 @@ public class LevelGameManager : MonoBehaviour
 
     private void OnGameOver()
     {
-        PlayerController.instance.enabled = false;
         inGameUICanvas.SetActive(false);
-
-        
 
         if ((Leaderboard.instance.GetEntryCount() < 8 && ScoreManager.instance.GetCurrentScore() != 0) ||
             (Leaderboard.instance.GetEntryCount() == 8 && ScoreManager.instance.GetCurrentScore() > Leaderboard.instance.GetLowestScore()))
@@ -99,6 +96,7 @@ public class LevelGameManager : MonoBehaviour
     {
         AudioManager.instance.StopBGSound();
         AudioManager.instance.PlaySFX(gameOverSFX);
+        PlayerController.instance.enabled = false;
         gameOverCanvas.SetActive(true);
         yield return new WaitForSeconds(2f);
         gameOverCanvas.SetActive(false);

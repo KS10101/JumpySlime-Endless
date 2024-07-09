@@ -265,12 +265,11 @@ MonoBehaviour:
     _settingsComponent: {fileID: 0}
     overrideSettingsComponent: 0
     meshFilter: {fileID: 8196761685425728195}
-    meshCollider: {fileID: 4057510297178681719}
+    meshCollider: {fileID: 0}
     spriteRenderer: {fileID: 0}
     splineComputer: {fileID: 0}
     editSplinePoints: []
-    colliders:
-    - {fileID: 4057510297178681719}
+    colliders: []
     _isRoot: 0
   - transform: {fileID: 5812506065470370906}
     localRotation: {x: 0.70629424, y: -0.00000016878089, z: 0.70791847, w: -0.00000016839361}
@@ -300,12 +299,11 @@ MonoBehaviour:
     _settingsComponent: {fileID: 0}
     overrideSettingsComponent: 0
     meshFilter: {fileID: 4552008674305652528}
-    meshCollider: {fileID: 3399999929124381294}
+    meshCollider: {fileID: 0}
     spriteRenderer: {fileID: 0}
     splineComputer: {fileID: 0}
     editSplinePoints: []
-    colliders:
-    - {fileID: 3399999929124381294}
+    colliders: []
     _isRoot: 0
   - transform: {fileID: 8367196971615292640}
     localRotation: {x: -0.844933, y: 0.15376645, z: -0.33585513, w: -0.38684043}
@@ -335,12 +333,11 @@ MonoBehaviour:
     _settingsComponent: {fileID: 0}
     overrideSettingsComponent: 0
     meshFilter: {fileID: 667609523155384855}
-    meshCollider: {fileID: 6168622958749384788}
+    meshCollider: {fileID: 0}
     spriteRenderer: {fileID: 0}
     splineComputer: {fileID: 0}
     editSplinePoints: []
-    colliders:
-    - {fileID: 6168622958749384788}
+    colliders: []
     _isRoot: 0
   - transform: {fileID: 8983437651933834839}
     localRotation: {x: -0.6948327, y: 0.6388012, z: 0.19796494, w: 0.26448154}
@@ -370,12 +367,11 @@ MonoBehaviour:
     _settingsComponent: {fileID: 0}
     overrideSettingsComponent: 0
     meshFilter: {fileID: 227780773097506928}
-    meshCollider: {fileID: 5312069325535020075}
+    meshCollider: {fileID: 0}
     spriteRenderer: {fileID: 0}
     splineComputer: {fileID: 0}
     editSplinePoints: []
-    colliders:
-    - {fileID: 5312069325535020075}
+    colliders: []
     _isRoot: 0
   bounds:
     center: {x: 13.800001, y: 35.160843, z: -12.140003}
@@ -1000,7 +996,11 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3802650454121055890, guid: d26614c3ba09f544c877ccd59fa8a71d, type: 3}
+    - {fileID: 2947220564698006253, guid: d26614c3ba09f544c877ccd59fa8a71d, type: 3}
+    - {fileID: 5932016359064035543, guid: d26614c3ba09f544c877ccd59fa8a71d, type: 3}
+    - {fileID: 4986281413734937550, guid: d26614c3ba09f544c877ccd59fa8a71d, type: 3}
     m_RemovedGameObjects:
     - {fileID: 1118556513910395684, guid: d26614c3ba09f544c877ccd59fa8a71d, type: 3}
     - {fileID: 5697778599292794287, guid: d26614c3ba09f544c877ccd59fa8a71d, type: 3}
@@ -1021,34 +1021,14 @@ MeshFilter:
   m_CorrespondingSourceObject: {fileID: 8376180504013486254, guid: d26614c3ba09f544c877ccd59fa8a71d, type: 3}
   m_PrefabInstance: {fileID: 9042656962308637369}
   m_PrefabAsset: {fileID: 0}
---- !u!64 &3399999929124381294 stripped
-MeshCollider:
-  m_CorrespondingSourceObject: {fileID: 5932016359064035543, guid: d26614c3ba09f544c877ccd59fa8a71d, type: 3}
-  m_PrefabInstance: {fileID: 9042656962308637369}
-  m_PrefabAsset: {fileID: 0}
---- !u!64 &4057510297178681719 stripped
-MeshCollider:
-  m_CorrespondingSourceObject: {fileID: 4986281413734937550, guid: d26614c3ba09f544c877ccd59fa8a71d, type: 3}
-  m_PrefabInstance: {fileID: 9042656962308637369}
-  m_PrefabAsset: {fileID: 0}
 --- !u!33 &4552008674305652528 stripped
 MeshFilter:
   m_CorrespondingSourceObject: {fileID: 4780011754319164809, guid: d26614c3ba09f544c877ccd59fa8a71d, type: 3}
   m_PrefabInstance: {fileID: 9042656962308637369}
   m_PrefabAsset: {fileID: 0}
---- !u!64 &5312069325535020075 stripped
-MeshCollider:
-  m_CorrespondingSourceObject: {fileID: 3802650454121055890, guid: d26614c3ba09f544c877ccd59fa8a71d, type: 3}
-  m_PrefabInstance: {fileID: 9042656962308637369}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5812506065470370906 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3303341813262497507, guid: d26614c3ba09f544c877ccd59fa8a71d, type: 3}
-  m_PrefabInstance: {fileID: 9042656962308637369}
-  m_PrefabAsset: {fileID: 0}
---- !u!64 &6168622958749384788 stripped
-MeshCollider:
-  m_CorrespondingSourceObject: {fileID: 2947220564698006253, guid: d26614c3ba09f544c877ccd59fa8a71d, type: 3}
   m_PrefabInstance: {fileID: 9042656962308637369}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &7941533479021222378 stripped

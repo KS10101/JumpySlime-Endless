@@ -281,7 +281,7 @@ namespace Dreamteck.Forever
                 if (extrusionSettings.bendMesh)
                 {
                     Destroy(extrudedMesh);
-                    extrusionMesh.Clear();
+                    extrusionMesh?.Clear();
                 }
                 
                 if (extrusionSettings.bendSprite)

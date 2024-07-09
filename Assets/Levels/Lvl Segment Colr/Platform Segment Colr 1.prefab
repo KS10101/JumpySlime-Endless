@@ -48,7 +48,6 @@ GameObject:
   - component: {fileID: 1833211403618346311}
   - component: {fileID: 1478629911942941221}
   - component: {fileID: 3798055311734444475}
-  - component: {fileID: 6704370415326089617}
   m_Layer: 0
   m_Name: Ring
   m_TagString: Untagged
@@ -121,28 +120,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &6704370415326089617
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 648244575300333}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300004, guid: 265ba915d8d5b4aa2bb0c5e8e2c6cc9c, type: 3}
 --- !u!1 &192410962466592480
 GameObject:
   m_ObjectHideFlags: 0
@@ -720,12 +697,11 @@ MonoBehaviour:
     _settingsComponent: {fileID: 0}
     overrideSettingsComponent: 0
     meshFilter: {fileID: 1394557333650290948}
-    meshCollider: {fileID: 6470275192412419423}
+    meshCollider: {fileID: 0}
     spriteRenderer: {fileID: 0}
     splineComputer: {fileID: 0}
     editSplinePoints: []
-    colliders:
-    - {fileID: 6470275192412419423}
+    colliders: []
     _isRoot: 0
   - transform: {fileID: 3281191577196012289}
     localRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -810,7 +786,7 @@ MonoBehaviour:
     _extrusionSettings:
       meshColliderHandling: 0
       bendSpline: 0
-      boundsInclusion: 30
+      boundsInclusion: 0
       indexing: 0
       applyRotation: 1
       keepUpright: 0
@@ -857,12 +833,11 @@ MonoBehaviour:
     _settingsComponent: {fileID: 0}
     overrideSettingsComponent: 0
     meshFilter: {fileID: 1478629911942941221}
-    meshCollider: {fileID: 6704370415326089617}
+    meshCollider: {fileID: 0}
     spriteRenderer: {fileID: 0}
     splineComputer: {fileID: 0}
     editSplinePoints: []
-    colliders:
-    - {fileID: 6704370415326089617}
+    colliders: []
     _isRoot: 0
   - transform: {fileID: 88914256969327731}
     localRotation: {x: -0.4515339, y: -0.00000021272993, z: 0.892254, w: 0.000000107654074}
@@ -892,12 +867,11 @@ MonoBehaviour:
     _settingsComponent: {fileID: 0}
     overrideSettingsComponent: 0
     meshFilter: {fileID: 5302904773309868861}
-    meshCollider: {fileID: 2822495056264083093}
+    meshCollider: {fileID: 0}
     spriteRenderer: {fileID: 0}
     splineComputer: {fileID: 0}
     editSplinePoints: []
-    colliders:
-    - {fileID: 2822495056264083093}
+    colliders: []
     _isRoot: 0
   - transform: {fileID: 3886520963220591804}
     localRotation: {x: 0.70629424, y: -0.00000016878089, z: 0.70791847, w: -0.00000016839361}
@@ -927,12 +901,11 @@ MonoBehaviour:
     _settingsComponent: {fileID: 0}
     overrideSettingsComponent: 0
     meshFilter: {fileID: 6516254032234371030}
-    meshCollider: {fileID: 5362274962306138760}
+    meshCollider: {fileID: 0}
     spriteRenderer: {fileID: 0}
     splineComputer: {fileID: 0}
     editSplinePoints: []
-    colliders:
-    - {fileID: 5362274962306138760}
+    colliders: []
     _isRoot: 0
   - transform: {fileID: 1250830891151780870}
     localRotation: {x: -0.64292705, y: -0.29435495, z: 0.64292705, w: -0.29435495}
@@ -962,12 +935,11 @@ MonoBehaviour:
     _settingsComponent: {fileID: 0}
     overrideSettingsComponent: 0
     meshFilter: {fileID: 7783990455643757297}
-    meshCollider: {fileID: 3521463773391413426}
+    meshCollider: {fileID: 0}
     spriteRenderer: {fileID: 0}
     splineComputer: {fileID: 0}
     editSplinePoints: []
-    colliders:
-    - {fileID: 3521463773391413426}
+    colliders: []
     _isRoot: 0
   - transform: {fileID: 1868445961053261489}
     localRotation: {x: -0.6948327, y: 0.6388012, z: 0.19796494, w: 0.26448154}
@@ -997,12 +969,11 @@ MonoBehaviour:
     _settingsComponent: {fileID: 0}
     overrideSettingsComponent: 0
     meshFilter: {fileID: 7380454385434847382}
-    meshCollider: {fileID: 3241988826565371085}
+    meshCollider: {fileID: 0}
     spriteRenderer: {fileID: 0}
     splineComputer: {fileID: 0}
     editSplinePoints: []
-    colliders:
-    - {fileID: 3241988826565371085}
+    colliders: []
     _isRoot: 0
   - transform: {fileID: 1866745228517906335}
     localRotation: {x: -0.46961728, y: 0.049010187, z: 0.7552228, w: -0.4546386}
@@ -1032,12 +1003,11 @@ MonoBehaviour:
     _settingsComponent: {fileID: 0}
     overrideSettingsComponent: 0
     meshFilter: {fileID: 4058075231777656117}
-    meshCollider: {fileID: 8261321810722235822}
+    meshCollider: {fileID: 0}
     spriteRenderer: {fileID: 0}
     splineComputer: {fileID: 0}
     editSplinePoints: []
-    colliders:
-    - {fileID: 8261321810722235822}
+    colliders: []
     _isRoot: 0
   bounds:
     center: {x: 4.200001, y: 32, z: -0.0000019073486}
@@ -1250,7 +1220,6 @@ GameObject:
   - component: {fileID: 1250830891151780870}
   - component: {fileID: 7783990455643757297}
   - component: {fileID: 7891516362957508511}
-  - component: {fileID: 3521463773391413426}
   m_Layer: 0
   m_Name: Ring
   m_TagString: Untagged
@@ -1323,28 +1292,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &3521463773391413426
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 653184416951441508}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300004, guid: 265ba915d8d5b4aa2bb0c5e8e2c6cc9c, type: 3}
 --- !u!1 &1629771947433351248
 GameObject:
   m_ObjectHideFlags: 0
@@ -1451,7 +1398,6 @@ GameObject:
   - component: {fileID: 1866745228517906335}
   - component: {fileID: 4058075231777656117}
   - component: {fileID: 7840166923972732846}
-  - component: {fileID: 8261321810722235822}
   m_Layer: 0
   m_Name: Ring (1)
   m_TagString: Untagged
@@ -1524,28 +1470,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &8261321810722235822
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3242681052563867715}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300004, guid: 265ba915d8d5b4aa2bb0c5e8e2c6cc9c, type: 3}
 --- !u!1 &3587816256658756970
 GameObject:
   m_ObjectHideFlags: 0
@@ -1557,7 +1481,6 @@ GameObject:
   - component: {fileID: 88914256969327731}
   - component: {fileID: 5302904773309868861}
   - component: {fileID: 3279901570728786597}
-  - component: {fileID: 2822495056264083093}
   m_Layer: 0
   m_Name: Ring
   m_TagString: Untagged
@@ -1630,28 +1553,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &2822495056264083093
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3587816256658756970}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300004, guid: 265ba915d8d5b4aa2bb0c5e8e2c6cc9c, type: 3}
 --- !u!1 &5759841295599120207
 GameObject:
   m_ObjectHideFlags: 0
@@ -1982,7 +1883,6 @@ GameObject:
   - component: {fileID: 1868445961053261489}
   - component: {fileID: 7380454385434847382}
   - component: {fileID: 7522437297250685992}
-  - component: {fileID: 3241988826565371085}
   m_Layer: 0
   m_Name: Ring
   m_TagString: Untagged
@@ -2055,28 +1955,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &3241988826565371085
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7303066216795442306}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300004, guid: 265ba915d8d5b4aa2bb0c5e8e2c6cc9c, type: 3}
 --- !u!1 &8414188389944747209
 GameObject:
   m_ObjectHideFlags: 0
@@ -2088,7 +1966,6 @@ GameObject:
   - component: {fileID: 3886520963220591804}
   - component: {fileID: 6516254032234371030}
   - component: {fileID: 9012524398260424978}
-  - component: {fileID: 5362274962306138760}
   m_Layer: 0
   m_Name: Ring
   m_TagString: Untagged
@@ -2161,28 +2038,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &5362274962306138760
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8414188389944747209}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300004, guid: 265ba915d8d5b4aa2bb0c5e8e2c6cc9c, type: 3}
 --- !u!1001 &3817651429920535489
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2369,7 +2224,8 @@ PrefabInstance:
       propertyPath: m_ReceiveShadows
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1818938445444256714, guid: 2c9754511b0b5b9488fec216460e1611, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -2377,11 +2233,6 @@ PrefabInstance:
 --- !u!33 &1394557333650290948 stripped
 MeshFilter:
   m_CorrespondingSourceObject: {fileID: 6030132302060068753, guid: 2c9754511b0b5b9488fec216460e1611, type: 3}
-  m_PrefabInstance: {fileID: 4680686835649881749}
-  m_PrefabAsset: {fileID: 0}
---- !u!64 &6470275192412419423 stripped
-MeshCollider:
-  m_CorrespondingSourceObject: {fileID: 1818938445444256714, guid: 2c9754511b0b5b9488fec216460e1611, type: 3}
   m_PrefabInstance: {fileID: 4680686835649881749}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &7843264058682941219 stripped

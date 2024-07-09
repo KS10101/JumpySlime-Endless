@@ -574,12 +574,11 @@ MonoBehaviour:
     _settingsComponent: {fileID: 0}
     overrideSettingsComponent: 0
     meshFilter: {fileID: 1394557333650290948}
-    meshCollider: {fileID: 6470275192412419423}
+    meshCollider: {fileID: 0}
     spriteRenderer: {fileID: 0}
     splineComputer: {fileID: 0}
     editSplinePoints: []
-    colliders:
-    - {fileID: 6470275192412419423}
+    colliders: []
     _isRoot: 0
   bounds:
     center: {x: 0, y: -0.3900001, z: 0.00000047683716}
@@ -1014,7 +1013,8 @@ PrefabInstance:
       propertyPath: m_ReceiveShadows
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1818938445444256714, guid: 2c9754511b0b5b9488fec216460e1611, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -1022,11 +1022,6 @@ PrefabInstance:
 --- !u!33 &1394557333650290948 stripped
 MeshFilter:
   m_CorrespondingSourceObject: {fileID: 6030132302060068753, guid: 2c9754511b0b5b9488fec216460e1611, type: 3}
-  m_PrefabInstance: {fileID: 4680686835649881749}
-  m_PrefabAsset: {fileID: 0}
---- !u!64 &6470275192412419423 stripped
-MeshCollider:
-  m_CorrespondingSourceObject: {fileID: 1818938445444256714, guid: 2c9754511b0b5b9488fec216460e1611, type: 3}
   m_PrefabInstance: {fileID: 4680686835649881749}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &7843264058682941219 stripped
