@@ -10,13 +10,14 @@ public class LevelGameManager : MonoBehaviour
 {
     public static LevelGameManager instance;
 
+    [SerializeField] private Button playButton;
     [SerializeField] private Button playAgainButton;
-    [SerializeField] private Button mainMenuButton;
     [SerializeField] private Button leadboardButton;
     [SerializeField] private Button submitButton;
 
     [SerializeField] private TMP_InputField nameInput;
 
+    [SerializeField] private GameObject MainMenuCanvas;
     [SerializeField] private GameObject inGameUICanvas;
     [SerializeField] private GameObject gameOverMenuCanvas;
     [SerializeField] private GameObject gameOverCanvas;
@@ -37,10 +38,16 @@ public class LevelGameManager : MonoBehaviour
             instance = this;
     }
 
+    private void Start()
+    {
+        inGameUICanvas.SetActive(false);
+        MainMenuCanvas.SetActive(true);
+    }
+
     private void OnEnable()
     {
+        playButton.onClick.AddListener(PlayGame);
         playAgainButton.onClick.AddListener(Restart);
-        mainMenuButton.onClick.AddListener(GoToMenu);
         submitButton.onClick.AddListener(OnSubmitButtonClick);
         leadboardButton.onClick.AddListener(BuildLeaderboard);
 
@@ -48,8 +55,8 @@ public class LevelGameManager : MonoBehaviour
 
     private void OnDisable()
     {
+        playButton.onClick.RemoveListener(PlayGame);
         playAgainButton.onClick.RemoveListener(Restart);
-        mainMenuButton.onClick.RemoveListener(GoToMenu);
         submitButton.onClick.RemoveListener(OnSubmitButtonClick);
         leadboardButton.onClick.RemoveListener(BuildLeaderboard);
 
@@ -121,17 +128,17 @@ public class LevelGameManager : MonoBehaviour
         OnGameOver();
     }
 
+    private void PlayGame()
+    {
+        AudioManager.instance.PlaySFX(clickSFX);
+        PlayerController.instance.StartPlayer();
+        inGameUICanvas.SetActive(true);
+        MainMenuCanvas.SetActive(false);
+    }
+
     public void Restart()
     {
         AudioManager.instance.PlaySFX(clickSFX);
-        Scene scene = SceneManager.GetActiveScene();
-        SceneManager.LoadScene(scene.name);
-    }
-
-    public void GoToMenu()
-    {
-        AudioManager.instance.PlaySFX(clickSFX);
-        SceneManager.LoadSceneAsync(0);
     }
 
     private void BuildLeaderboard()

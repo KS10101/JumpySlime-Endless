@@ -20,24 +20,17 @@ public class MainMenu : MonoBehaviour
 
     private void OnEnable()
     {
-        PlayButton.onClick.AddListener(PlayGame);
         LeaderboardButton.onClick.AddListener(BuildLeaderboard);
         ExitButton.onClick.AddListener(ExitGame);
     }
 
     private void OnDisable()
     {
-        PlayButton.onClick.RemoveListener(PlayGame);
         LeaderboardButton.onClick.RemoveListener(BuildLeaderboard);
         ExitButton.onClick.RemoveListener(ExitGame);
     }
 
-    private void PlayGame()
-    {
-        AudioManager.instance.PlaySFX(ClickSFX);
-        PlayerController.instance.StartPlayer();
-        this.gameObject.SetActive(false);
-    }
+    
 
     private void BuildLeaderboard()
     {
