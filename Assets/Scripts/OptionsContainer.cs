@@ -6,7 +6,7 @@ using System.Linq;
 using TMPro;
 using UnityEngine;
 
-public class OptionsContainer :Builder
+public class OptionsContainer : Builder
 {
     [SerializeField] private float m_BoostAmount = 2f;
     [SerializeField] private float m_retardationAmount = 4f;
@@ -112,9 +112,9 @@ public class OptionsContainer :Builder
         answered = true;
         StreakManager.instance.MakeScoreStreak();
         ScoreManager.instance.AddScore(CorrectOptionPoints);
+        LivesManager.instance.AddLives();
         PlayerController.instance.SetSpeed(PlayerController.instance.GetSpeed() + m_BoostAmount);
         AudioManager.instance.PlaySFX(correctSFX);
-        StreakManager.instance.CancelStreak();
     }
 
     public void OnWrongOptionHit()
@@ -130,9 +130,8 @@ public class OptionsContainer :Builder
         answered = true;
         StreakManager.instance.CancelScoreStreak();
         ScoreManager.instance.ReduceScore(WrongOptionPoints);
+        LivesManager.instance.ReduceLives();
         PlayerController.instance.SetSpeed(PlayerController.instance.GetSpeed() - m_retardationAmount);
         AudioManager.instance.PlaySFX(incorrectSFX);
-        StreakManager.instance.MakeHealthStreak();
-
     }
 }

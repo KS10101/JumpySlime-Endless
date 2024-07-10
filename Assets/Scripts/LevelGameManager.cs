@@ -37,6 +37,24 @@ public class LevelGameManager : MonoBehaviour
             instance = this;
     }
 
+    private void OnEnable()
+    {
+        playAgainButton.onClick.AddListener(Restart);
+        mainMenuButton.onClick.AddListener(GoToMenu);
+        submitButton.onClick.AddListener(OnSubmitButtonClick);
+        leadboardButton.onClick.AddListener(BuildLeaderboard);
+
+    }
+
+    private void OnDisable()
+    {
+        playAgainButton.onClick.RemoveListener(Restart);
+        mainMenuButton.onClick.RemoveListener(GoToMenu);
+        submitButton.onClick.RemoveListener(OnSubmitButtonClick);
+        leadboardButton.onClick.RemoveListener(BuildLeaderboard);
+
+    }
+
     private string SetName()
     {
         string inputText = nameInput.text;
@@ -102,25 +120,6 @@ public class LevelGameManager : MonoBehaviour
         gameOverCanvas.SetActive(false);
         OnGameOver();
     }
-
-    private void OnEnable()
-    {
-        playAgainButton.onClick.AddListener(Restart);
-        mainMenuButton.onClick.AddListener(GoToMenu);
-        submitButton.onClick.AddListener(OnSubmitButtonClick);
-        leadboardButton.onClick.AddListener(BuildLeaderboard);
-
-    }
-
-    private void OnDisable()
-    {
-        playAgainButton.onClick.RemoveListener(Restart);
-        mainMenuButton.onClick.RemoveListener(GoToMenu);
-        submitButton.onClick.RemoveListener(OnSubmitButtonClick);
-        leadboardButton.onClick.RemoveListener(BuildLeaderboard);
-
-    }
-
 
     public void Restart()
     {

@@ -35,7 +35,7 @@ public class MainMenu : MonoBehaviour
     private void PlayGame()
     {
         AudioManager.instance.PlaySFX(ClickSFX);
-        SceneManager.LoadSceneAsync(1);
+        PlayerController.instance.StartPlayer();
         this.gameObject.SetActive(false);
     }
 
