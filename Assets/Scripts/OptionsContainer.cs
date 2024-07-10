@@ -128,7 +128,7 @@ public class OptionsContainer : Builder
             point.ToggleCollider(false);
         }
         answered = true;
-        StreakManager.instance.CancelScoreStreak();
+        StreakManager.instance.ResetScoreStreak();
         ScoreManager.instance.ReduceScore(WrongOptionPoints);
         LivesManager.instance.ReduceLives();
         PlayerController.instance.SetSpeed(PlayerController.instance.GetSpeed() - m_retardationAmount);

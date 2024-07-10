@@ -40,11 +40,10 @@ public class PlayerController : MonoBehaviour
 
     public void StartPlayer()
     {
-        if (LevelGenerator.instance.ready)
-        {
-            SetSpeed(speed);
-            EnableControls = true;
-        }
+
+        SetSpeed(10);
+        EnableControls = true;
+
     }
 
     private void Update()
@@ -89,9 +88,6 @@ public class PlayerController : MonoBehaviour
         {
             this.speed = 0;
             this.runner.followSpeed = 0;
-
-            //LevelGameManager.instance.OnGameOver();
-            Debug.Log("GAME OVER");
         }
         Debug.Log($"speed : {runner.followSpeed}");
 
@@ -100,12 +96,12 @@ public class PlayerController : MonoBehaviour
 
     public void StopPlayer()
     {
+        EnableControls = false;
         this.speed = 0;
         this.runner.followSpeed = 0;
-        SetAniamtionSpeed(0);
     }
 
-    private void SetAniamtionSpeed(float rate)
+    public void SetAniamtionSpeed(float rate)
     {
         if (rate <= 2 && rate >= 0)
             PlayerAnimator?.SetFloat(animationSpeedMultiplierName, rate);

@@ -48,7 +48,7 @@ public class StreakManager : MonoBehaviour
         }
     }
 
-    public void CancelStreak()
+    public void ResetStreak()
     {
         if(streak >= 0)
         {
@@ -56,7 +56,7 @@ public class StreakManager : MonoBehaviour
         }
     }
 
-    public void CancelScoreStreak()
+    public void ResetScoreStreak()
     {
         if (scoreStreak >= 0)
         {

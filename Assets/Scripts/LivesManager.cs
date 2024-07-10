@@ -24,7 +24,7 @@ public class LivesManager : MonoBehaviour
 
     public void AddLives()
     {
-        if (currentLives <= maxLives)
+        if (currentLives < maxLives)
             currentLives++;
         else
             currentLives = maxLives;
@@ -39,6 +39,14 @@ public class LivesManager : MonoBehaviour
         else
             currentLives = 0;
 
+        UpdateLivesUI(currentLives);
+        if (currentLives <= 0)
+            LevelGameManager.instance.RunGameOverCoroutine();
+    }
+
+    public void ResetLives()
+    {
+        currentLives = maxLives;
         UpdateLivesUI(currentLives);
     }
 

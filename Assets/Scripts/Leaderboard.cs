@@ -43,7 +43,6 @@ public class Leaderboard : MonoBehaviour
     {
         AudioManager.instance.PlaySFX(clickSFX);
         leaderboardPanel.SetActive(false);
-        menuPanel.SetActive(true);
     }
 
     public void DeleteGeneratedEntries()

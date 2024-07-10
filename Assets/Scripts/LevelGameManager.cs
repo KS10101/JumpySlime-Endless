@@ -1,3 +1,4 @@
+using Dreamteck.Forever;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -11,9 +12,13 @@ public class LevelGameManager : MonoBehaviour
     public static LevelGameManager instance;
 
     [SerializeField] private Button playButton;
-    [SerializeField] private Button playAgainButton;
+    [SerializeField] private Button RestartButton;
     [SerializeField] private Button leadboardButton;
     [SerializeField] private Button submitButton;
+    [SerializeField] private Button settingsButton;
+    [SerializeField] private Button storeButton;
+    [SerializeField] private Button MainMenuButton;
+    [SerializeField] private Button ExitButton;
 
     [SerializeField] private TMP_InputField nameInput;
 
@@ -23,10 +28,13 @@ public class LevelGameManager : MonoBehaviour
     [SerializeField] private GameObject gameOverCanvas;
     [SerializeField] private GameObject highscoreCanvas;
     [SerializeField] private GameObject leaderboardCanvas;
+    [SerializeField] private GameObject settingsCanvas;
+    [SerializeField] private GameObject storeCanvas;
 
     [SerializeField] private TextMeshProUGUI currentScore;
     [SerializeField] private TextMeshProUGUI highScore;
 
+    [SerializeField] private AudioClip bgmClip;
     [SerializeField] private AudioClip clickSFX;
     [SerializeField] private AudioClip gameOverSFX;
     [SerializeField] private AudioClip highscoreSFX;
@@ -40,6 +48,7 @@ public class LevelGameManager : MonoBehaviour
 
     private void Start()
     {
+        AudioManager.instance.PlayBGSound(bgmClip);
         inGameUICanvas.SetActive(false);
         MainMenuCanvas.SetActive(true);
     }
@@ -47,19 +56,25 @@ public class LevelGameManager : MonoBehaviour
     private void OnEnable()
     {
         playButton.onClick.AddListener(PlayGame);
-        playAgainButton.onClick.AddListener(Restart);
+        RestartButton.onClick.AddListener(Restart);
         submitButton.onClick.AddListener(OnSubmitButtonClick);
         leadboardButton.onClick.AddListener(BuildLeaderboard);
-
+        settingsButton.onClick.AddListener(OpenSettings);
+        storeButton.onClick.AddListener(OpenStore);
+        MainMenuButton.onClick.AddListener(GotoMainMenu);
+        ExitButton.onClick.AddListener(ExitGame);
     }
 
     private void OnDisable()
     {
         playButton.onClick.RemoveListener(PlayGame);
-        playAgainButton.onClick.RemoveListener(Restart);
+        RestartButton.onClick.RemoveListener(Restart);
         submitButton.onClick.RemoveListener(OnSubmitButtonClick);
         leadboardButton.onClick.RemoveListener(BuildLeaderboard);
-
+        settingsButton.onClick.RemoveListener(OpenSettings);
+        storeButton.onClick.RemoveListener(OpenStore);
+        MainMenuButton.onClick.RemoveListener(GotoMainMenu);
+        ExitButton.onClick.RemoveListener(ExitGame);
     }
 
     private string SetName()
@@ -95,6 +110,17 @@ public class LevelGameManager : MonoBehaviour
         StartCoroutine(GameOver());
     }
 
+    IEnumerator GameOver()
+    {
+        AudioManager.instance.StopBGSound();
+        AudioManager.instance.PlaySFX(gameOverSFX);
+        PlayerController.instance.StopPlayer();
+        gameOverCanvas.SetActive(true);
+        yield return new WaitForSeconds(2f);
+        gameOverCanvas.SetActive(false);
+        OnGameOver();
+    }
+
     private void OnGameOver()
     {
         inGameUICanvas.SetActive(false);
@@ -117,16 +143,6 @@ public class LevelGameManager : MonoBehaviour
 
     }
 
-    IEnumerator GameOver()
-    {
-        AudioManager.instance.StopBGSound();
-        AudioManager.instance.PlaySFX(gameOverSFX);
-        PlayerController.instance.enabled = false;
-        gameOverCanvas.SetActive(true);
-        yield return new WaitForSeconds(2f);
-        gameOverCanvas.SetActive(false);
-        OnGameOver();
-    }
 
     private void PlayGame()
     {
@@ -139,6 +155,23 @@ public class LevelGameManager : MonoBehaviour
     public void Restart()
     {
         AudioManager.instance.PlaySFX(clickSFX);
+        ScoreManager.instance.ResetLocalScore();
+        LivesManager.instance.ResetLives();
+        PlayerController.instance.StopPlayer();
+        LevelGenerator.instance.Restart();
+        PlayerController.instance.StartPlayer();
+        gameOverMenuCanvas.SetActive(false);
+        inGameUICanvas.SetActive(true);
+    }
+
+    private void ResetLevel()
+    {
+        ScoreManager.instance.ResetLocalScore();
+        LivesManager.instance.ResetLives();
+        PlayerController.instance.StopPlayer();
+        LevelGenerator.instance.Restart();
+        inGameUICanvas.SetActive(false);
+        PlayerController.instance.SetAniamtionSpeed(1);
     }
 
     private void BuildLeaderboard()
@@ -150,5 +183,31 @@ public class LevelGameManager : MonoBehaviour
         //Leaderboard.instance.ClearScoresFromJson();
         //Leaderboard.instance.SaveScoresToJSON();
         Leaderboard.instance.CreateEntry();
+    }
+
+    private void OpenSettings()
+    {
+        AudioManager.instance.PlaySFX(clickSFX);
+        settingsCanvas.SetActive(true);
+    }
+
+    private void OpenStore()
+    {
+        AudioManager.instance.PlaySFX(clickSFX);
+        storeCanvas.SetActive(true);
+    }
+
+    private void GotoMainMenu()
+    {
+        AudioManager.instance.PlaySFX(clickSFX);
+        gameOverMenuCanvas.SetActive(false);
+        MainMenuCanvas.SetActive(true);
+        ResetLevel();
+    }
+
+    private void ExitGame()
+    {
+        AudioManager.instance.PlaySFX(clickSFX);
+        Application.Quit();
     }
 }

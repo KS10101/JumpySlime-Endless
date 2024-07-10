@@ -21,13 +21,13 @@ public class MainMenu : MonoBehaviour
     private void OnEnable()
     {
         LeaderboardButton.onClick.AddListener(BuildLeaderboard);
-        ExitButton.onClick.AddListener(ExitGame);
+
     }
 
     private void OnDisable()
     {
         LeaderboardButton.onClick.RemoveListener(BuildLeaderboard);
-        ExitButton.onClick.RemoveListener(ExitGame);
+
     }
 
     
@@ -40,9 +40,5 @@ public class MainMenu : MonoBehaviour
         Leaderboard.instance.CreateEntry();
     }
 
-    private void ExitGame()
-    {
-        AudioManager.instance.PlaySFX(ClickSFX);
-        Application.Quit();
-    }
+
 }
