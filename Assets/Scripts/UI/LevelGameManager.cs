@@ -14,6 +14,7 @@ public class LevelGameManager : MonoBehaviour
     [SerializeField] private Button playButton;
     [SerializeField] private Button RestartButton;
     [SerializeField] private Button leadboardButton;
+    [SerializeField] private Button GOLeadboardButton;
     [SerializeField] private Button submitButton;
     [SerializeField] private Button settingsButton;
     [SerializeField] private Button storeButton;
@@ -59,6 +60,7 @@ public class LevelGameManager : MonoBehaviour
         RestartButton.onClick.AddListener(Restart);
         submitButton.onClick.AddListener(OnSubmitButtonClick);
         leadboardButton.onClick.AddListener(BuildLeaderboard);
+        GOLeadboardButton.onClick.AddListener(BuildLeaderboard);
         settingsButton.onClick.AddListener(OpenSettings);
         storeButton.onClick.AddListener(OpenStore);
         MainMenuButton.onClick.AddListener(GotoMainMenu);
@@ -71,6 +73,7 @@ public class LevelGameManager : MonoBehaviour
         RestartButton.onClick.RemoveListener(Restart);
         submitButton.onClick.RemoveListener(OnSubmitButtonClick);
         leadboardButton.onClick.RemoveListener(BuildLeaderboard);
+        GOLeadboardButton.onClick.RemoveListener(BuildLeaderboard);
         settingsButton.onClick.RemoveListener(OpenSettings);
         storeButton.onClick.RemoveListener(OpenStore);
         MainMenuButton.onClick.RemoveListener(GotoMainMenu);
@@ -113,7 +116,7 @@ public class LevelGameManager : MonoBehaviour
     IEnumerator GameOver()
     {
 
-        PlayerController.instance.TriggerGameOverAnim();
+        PlayerController.instance.TriggerAnimation("Rig_Damage_02");
         AudioManager.instance.StopBGSound();
         AudioManager.instance.PlaySFX(gameOverSFX);
         PlayerController.instance.StopPlayer();
@@ -142,6 +145,7 @@ public class LevelGameManager : MonoBehaviour
             gameOverMenuCanvas.SetActive(true);
             
         }
+        AudioManager.instance.PlayBGSound(bgmClip);
 
     }
 
@@ -162,6 +166,7 @@ public class LevelGameManager : MonoBehaviour
         PlayerController.instance.StopPlayer();
         LevelGenerator.instance.Restart();
         PlayerController.instance.StartPlayer();
+        PlayerController.instance.SetAniamtionSpeed(1);
         gameOverMenuCanvas.SetActive(false);
         inGameUICanvas.SetActive(true);
     }
@@ -173,13 +178,13 @@ public class LevelGameManager : MonoBehaviour
         PlayerController.instance.StopPlayer();
         LevelGenerator.instance.Restart();
         inGameUICanvas.SetActive(false);
+        PlayerController.instance.TriggerAnimation("Jump");
         PlayerController.instance.SetAniamtionSpeed(1);
     }
 
     private void BuildLeaderboard()
     {
         AudioManager.instance.PlaySFX(clickSFX);
-        gameOverMenuCanvas.SetActive(false);
         highscoreCanvas.SetActive(false);
         leaderboardCanvas.SetActive(true);
         //Leaderboard.instance.ClearScoresFromJson();

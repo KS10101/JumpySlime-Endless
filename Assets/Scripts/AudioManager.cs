@@ -24,6 +24,16 @@ public class AudioManager : MonoBehaviour
         SFX_Audio.loop = false;
     }
 
+    public void ToggleBGAudio(float vol)
+    {
+        BG_Audio.volume = vol;
+    }
+
+    public void ToggleSFXAudio(float vol)
+    {
+        SFX_Audio.volume = vol;
+    }
+
     public void PlayBGSound(AudioClip clip)
     {
         BG_Audio.clip = clip;

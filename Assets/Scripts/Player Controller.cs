@@ -38,13 +38,10 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    public void TriggerGameOverAnim()
-    {
-        PlayerAnimator.Play("Rig_Damage_02");
-    }
+    
     public void StartPlayer()
     {
-
+        TriggerAnimation("Jump");
         SetSpeed(10);
         EnableControls = true;
 
@@ -103,6 +100,11 @@ public class PlayerController : MonoBehaviour
         EnableControls = false;
         this.speed = 0;
         this.runner.followSpeed = 0;
+    }
+
+    public void TriggerAnimation(string animName)
+    {
+        PlayerAnimator.Play(animName);
     }
 
     public void SetAniamtionSpeed(float rate)

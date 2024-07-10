@@ -54,7 +54,7 @@ MeshRenderer:
   m_GameObject: {fileID: 4572503852527652011}
   m_Enabled: 1
   m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_ReceiveShadows: 0
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
   m_MotionVectors: 1
@@ -380,7 +380,7 @@ MonoBehaviour:
     min: {x: -20.3, y: -0.27831015, z: -36.42001}
     size: {x: 68.2, y: 70.87831, z: 48.560013}
   builders: []
-  unpacked: 0
+  unpacked: 1
   alwaysDraw: 0
   drawGeneratedSpline: 1
   drawGeneratedSamples: 1
@@ -388,7 +388,7 @@ MonoBehaviour:
   drawEntranceAndExit: 1
   drawBounds: 1
   drawCustomPaths: 1
-  editorChildCount: 7
+  editorChildCount: 6
 --- !u!1 &7491435608625662857
 GameObject:
   m_ObjectHideFlags: 0

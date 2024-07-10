@@ -659,7 +659,7 @@ MonoBehaviour:
   RightOptionMat: {fileID: 2100000, guid: ffa62f77d2f909d4d8828f8b7be506ae, type: 2}
   WrongOptionMat: {fileID: 2100000, guid: 897e9ab553176244190d92766d313ce8, type: 2}
   CorrectOptionPoints: 5
-  WrongOptionPoints: 2
+  WrongOptionPoints: 0
   answered: 0
   _minOperandA: 1
   _maxOperandA: 30

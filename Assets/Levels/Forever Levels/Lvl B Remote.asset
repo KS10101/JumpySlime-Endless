@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Lvl B Remote
   m_EditorClassIdentifier: 
   _enabled: 1
-  _pathGenerator: {fileID: 11400000, guid: fba2aa93e9b57ea40924d4f16400a3ab, type: 2}
+  _pathGenerator: {fileID: 0}
   _sequenceCollection:
     sequences:
     - enabled: 1
@@ -21,6 +21,13 @@ MonoBehaviour:
       isCustom: 0
       customSequence: {fileID: 0}
       segments:
+      - nested: 0
+        randomPickChance: 1
+        _prefab: {fileID: 5153290625607095183, guid: d54657bb6a8377842b1394d7066d4d34, type: 3}
+        _segmentPool:
+        - {fileID: 0}
+        _pool: 1
+        _poolParent: {fileID: 0}
       - nested: 0
         randomPickChance: 1
         _prefab: {fileID: 5153290625607095183, guid: d54657bb6a8377842b1394d7066d4d34, type: 3}
@@ -46,8 +53,6 @@ MonoBehaviour:
         - {fileID: 0}
         - {fileID: 0}
         - {fileID: 0}
-        - {fileID: 0}
-        - {fileID: 0}
         _pool: 1
         _poolParent: {fileID: 0}
       - nested: 0
@@ -57,13 +62,11 @@ MonoBehaviour:
         - {fileID: 0}
         - {fileID: 0}
         - {fileID: 0}
-        - {fileID: 0}
-        - {fileID: 0}
         _pool: 1
         _poolParent: {fileID: 0}
       customPathGenerator: {fileID: 0}
       spawnCount: 5
-      type: 1
+      type: 3
       randomizer: {fileID: 11400000, guid: fb600be43607d7e47822c78754644d57, type: 2}
       customShuffle: {fileID: 0}
       preventRepeat: 0
@@ -85,6 +88,13 @@ MonoBehaviour:
         - {fileID: 0}
         _pool: 1
         _poolParent: {fileID: 0}
+      - nested: 0
+        randomPickChance: 1
+        _prefab: {fileID: 5153290625607095183, guid: d54657bb6a8377842b1394d7066d4d34, type: 3}
+        _segmentPool:
+        - {fileID: 0}
+        _pool: 1
+        _poolParent: {fileID: 0}
       customPathGenerator: {fileID: 0}
       spawnCount: 1
       type: 0
@@ -103,8 +113,6 @@ MonoBehaviour:
         - {fileID: 0}
         - {fileID: 0}
         - {fileID: 0}
-        - {fileID: 0}
-        - {fileID: 0}
         _pool: 1
         _poolParent: {fileID: 0}
       - nested: 0
@@ -114,13 +122,11 @@ MonoBehaviour:
         - {fileID: 0}
         - {fileID: 0}
         - {fileID: 0}
-        - {fileID: 0}
-        - {fileID: 0}
         _pool: 1
         _poolParent: {fileID: 0}
       customPathGenerator: {fileID: 0}
       spawnCount: 5
-      type: 1
+      type: 3
       randomizer: {fileID: 11400000, guid: fb600be43607d7e47822c78754644d57, type: 2}
       customShuffle: {fileID: 0}
       preventRepeat: 0
