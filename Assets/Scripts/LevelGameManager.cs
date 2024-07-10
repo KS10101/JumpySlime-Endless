@@ -112,6 +112,8 @@ public class LevelGameManager : MonoBehaviour
 
     IEnumerator GameOver()
     {
+
+        PlayerController.instance.TriggerGameOverAnim();
         AudioManager.instance.StopBGSound();
         AudioManager.instance.PlaySFX(gameOverSFX);
         PlayerController.instance.StopPlayer();

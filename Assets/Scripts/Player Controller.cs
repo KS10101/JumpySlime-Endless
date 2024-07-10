@@ -38,6 +38,10 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    public void TriggerGameOverAnim()
+    {
+        PlayerAnimator.Play("Rig_Damage_02");
+    }
     public void StartPlayer()
     {
 
