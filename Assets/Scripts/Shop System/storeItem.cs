@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class storeItem : MonoBehaviour
+public class StoreItem : MonoBehaviour
 {
     //public string charName;
     public Image charSprite;

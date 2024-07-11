@@ -62,6 +62,7 @@ public class StreakManager : MonoBehaviour
         {
             scoreStreak = 0;
             multiplier = 1;
+            ScoreManager.instance.scoreMultiplier = multiplier;
             streakAnimator.enabled = false;
             streakAnimator.gameObject.SetActive(false);
         }

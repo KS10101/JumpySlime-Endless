@@ -2,15 +2,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class characterManager : MonoBehaviour
+public class CharacterManager : MonoBehaviour
 {
-    public static characterManager instance;
+    public static CharacterManager instance;
     public List<CharacterData> CharList;
     [SerializeField] private GameObject storeItemPrefab;
     [SerializeField] private Transform storeItemContainer;
-    [SerializeField] private Button storeCloseButton;
-    [SerializeField] private GameObject storePanel;
-    [SerializeField] private AudioClip clickSFX;
+    
 
     private void Awake()
     {
@@ -18,33 +16,28 @@ public class characterManager : MonoBehaviour
             instance = this;
     }
 
-    private void OnEnable()
-    {
-        storeCloseButton.onClick.AddListener(CloseStore);
-    }
-
-    private void OnDisable()
-    {
-        storeCloseButton.onClick.RemoveListener(CloseStore);
-    }
-
-
     public void InitiateStoreItems()
     {
+        DeleteGeneratedItems();
+
         for(int i=0 ; i<CharList.Count ; i++)
         {
             GameObject item = Instantiate(storeItemPrefab, storeItemContainer);
-            item.GetComponent<storeItem>().Init(CharList[i]);
+            item.GetComponent<StoreItem>().Init(CharList[i]);
         }
     }
 
-    private void CloseStore()
+    public void DeleteGeneratedItems()
     {
-        storePanel.SetActive(false);
-        AudioManager.instance.PlaySFX(clickSFX);
+        int ItemNum = storeItemContainer.childCount;
+
+        if (ItemNum == 0) return;
+
+        for (int i = 0; i < ItemNum; i++)
+        {
+            Destroy(storeItemContainer.GetChild(i).gameObject);
+        }
     }
-
-
 
 
 }

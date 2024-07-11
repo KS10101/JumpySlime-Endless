@@ -12,9 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccbc410cbeffdfe4aae66dc238bb1ea3, type: 3}
   m_Name: ch 2
   m_EditorClassIdentifier: 
-  characterName: ch2
+  charSprite: {fileID: 21300000, guid: 552f72d9ed59f1948bbe402d1b935d1c, type: 3}
   price: 700
   isUnlocked: 0
-  charSprite: {fileID: 21300000, guid: a4f9805280fb42043a5628b225454685, type: 3}
   lockImg: {fileID: 1418021318000510409, guid: df4c998f7eb73c94d902f1dec37e810d, type: 3}
-  characterPrefab: {fileID: 7936488315029435870, guid: d29e0feeb0f1f7c4e97b64fefcd79056, type: 3}

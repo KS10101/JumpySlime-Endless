@@ -19,6 +19,10 @@ public class ScoreManager : MonoBehaviour
             instance = this;
         UpdateScoreText(0);
     }
+    private void Update()
+    {
+        Debug.Log("score multiplier: " + scoreMultiplier);
+    }
 
     public void AddScore(int score)
     {
@@ -68,14 +72,14 @@ public class ScoreManager : MonoBehaviour
 
     public void SaveCoinsData()
     {
-        float currentMaxCoins = PlayerPrefs.GetFloat("Coins") + CurrentScore;
-        PlayerPrefs.SetFloat("Coins", currentMaxCoins);
+        int currentMaxCoins = PlayerPrefs.GetInt("Coins") + CurrentScore;
+        PlayerPrefs.SetInt("Coins", currentMaxCoins);
         Debug.Log("Coins Saved in playerpref");
     }
 
-    public float GetCoinsData()
+    public int GetCoinsData()
     {
-        return PlayerPrefs.GetFloat("Coins");
+        return PlayerPrefs.GetInt("Coins");
     }
 
 }

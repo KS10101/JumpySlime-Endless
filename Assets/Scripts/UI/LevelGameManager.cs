@@ -202,7 +202,8 @@ public class LevelGameManager : MonoBehaviour
     private void OpenStore()
     {
         AudioManager.instance.PlaySFX(clickSFX);
-        characterManager.instance.InitiateStoreItems();
+        CharacterManager.instance.InitiateStoreItems();
+        ItemStorePanel.instance.UpdateCoinText(ScoreManager.instance.GetCoinsData());
         storeCanvas.SetActive(true);
     }
 
