@@ -94,8 +94,6 @@ GameObject:
   - component: {fileID: 6175825223983341384}
   - component: {fileID: 2088503387559548331}
   - component: {fileID: 1337074419558633036}
-  - component: {fileID: 2548817653235253699}
-  - component: {fileID: 9154637315557610364}
   m_Layer: 0
   m_Name: Empty Platform Segment Colr
   m_TagString: Untagged
@@ -169,103 +167,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!54 &2548817653235253699
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1394407957073565272}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
---- !u!114 &9154637315557610364
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1394407957073565272}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 972ea89ac0ab9d04f9100390a2dbf8d3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  type: 0
-  customEntrance: {fileID: 0}
-  customExit: {fileID: 0}
-  customKeepUpright: 0
-  _customMainPath: -1
-  axis: 2
-  customPaths: []
-  objectProperties:
-  - transform: {fileID: 6175825223983341384}
-    localRotation: {x: 0, y: 0, z: 0, w: 1}
-    extrudedMesh: {fileID: 0}
-    extrusionSpriteVertices: []
-    extrusionSpriteUVs: []
-    extrusionSpriteRect:
-      serializedVersion: 2
-      x: 0
-      y: 0
-      width: 0
-      height: 0
-    extrudedCollisionMesh: {fileID: 0}
-    _extrusionSettings:
-      meshColliderHandling: 0
-      bendSpline: 0
-      boundsInclusion: -1
-      indexing: 0
-      applyRotation: 1
-      keepUpright: 0
-      upVector: {x: 0, y: 1, z: 0}
-      applyScale: 0
-      bendMesh: 1
-      bendSprite: 0
-      bendPolygonCollider: 0
-      applyMeshColors: 0
-    _settingsComponent: {fileID: 0}
-    overrideSettingsComponent: 0
-    meshFilter: {fileID: 2088503387559548331}
-    meshCollider: {fileID: 0}
-    spriteRenderer: {fileID: 0}
-    splineComputer: {fileID: 0}
-    editSplinePoints: []
-    colliders: []
-    _isRoot: 1
-  bounds:
-    center: {x: 0, y: 0.21655273, z: 0}
-    extents: {x: 6.2252197, y: 0.4948578, z: 12.140015}
-    max: {x: 6.2252197, y: 0.7114105, z: 12.140015}
-    min: {x: -6.2252197, y: -0.27830505, z: -12.140015}
-    size: {x: 12.450439, y: 0.9897156, z: 24.28003}
-  builders: []
-  unpacked: 1
-  alwaysDraw: 0
-  drawGeneratedSpline: 1
-  drawGeneratedSamples: 1
-  drawSampleScale: 1
-  drawEntranceAndExit: 1
-  drawBounds: 1
-  drawCustomPaths: 1
-  editorChildCount: 0
 --- !u!1 &3262769735927735524
 GameObject:
   m_ObjectHideFlags: 0
@@ -932,7 +833,6 @@ GameObject:
   - component: {fileID: 4419506993212430302}
   - component: {fileID: 3810096886865320780}
   - component: {fileID: 4376887986123577410}
-  - component: {fileID: 1050428333256024746}
   m_Layer: 0
   m_Name: Empty Platform Segment Colr
   m_TagString: Untagged
@@ -1006,30 +906,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!54 &1050428333256024746
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8691039951694358613}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0

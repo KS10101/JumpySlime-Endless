@@ -13,6 +13,9 @@ public class GameSettings : MonoBehaviour
     [SerializeField] private GameObject BGMToggleON;
     [SerializeField] private GameObject SFXToggleON;
 
+    [SerializeField] private AudioClip sfx_Clip;
+    [SerializeField] private AudioClip clickSFX;
+
     private void OnEnable()
     {
         CloseBut.onClick.AddListener(CloseSettings);
@@ -29,6 +32,7 @@ public class GameSettings : MonoBehaviour
 
     private void CloseSettings()
     {
+        AudioManager.instance.PlaySFX(clickSFX);
         settingsPanel.SetActive(false);
     }
 
@@ -45,7 +49,10 @@ public class GameSettings : MonoBehaviour
     {
         SFXToggleON.SetActive(!SFXToggleON.activeSelf);
         if (SFXToggleON.activeSelf)
+        {
             AudioManager.instance.ToggleSFXAudio(1f);
+            AudioManager.instance.PlaySFX(sfx_Clip);
+        }
         else
             AudioManager.instance.ToggleSFXAudio(0f);
     }

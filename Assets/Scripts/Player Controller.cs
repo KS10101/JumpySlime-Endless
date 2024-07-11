@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Dreamteck.Splines;
 using FlightKit;
+using Cinemachine;
 
 [RequireComponent(typeof(LaneRunner))]
 public class PlayerController : MonoBehaviour
@@ -12,12 +13,10 @@ public class PlayerController : MonoBehaviour
     LaneRunner runner;
     float speed = 10f;
     private bool _enableControls = false;
+
     [SerializeField] Animator PlayerAnimator;
     [SerializeField] string animationSpeedMultiplierName;
     [SerializeField] GameObject CountdownCanvas;
-
-    [SerializeField] private AudioClip backgroundClip;
-    [SerializeField] private AudioClip countdownClip;
 
     public bool EnableControls { get => _enableControls; set => _enableControls = value; }
 
@@ -26,6 +25,7 @@ public class PlayerController : MonoBehaviour
         if (instance == null)
             instance = this;
         runner = GetComponent<LaneRunner>();
+
         speed = runner.followSpeed;
         runner.followSpeed = 0f;
         SetAniamtionSpeed(1);
@@ -35,7 +35,6 @@ public class PlayerController : MonoBehaviour
     {
         //StartCoroutine(Countdown());
         Debug.Log($"speed - {runner.followSpeed}");
-
     }
 
     

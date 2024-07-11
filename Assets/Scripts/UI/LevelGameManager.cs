@@ -1,10 +1,7 @@
 using Dreamteck.Forever;
 using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Events;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class LevelGameManager : MonoBehaviour
@@ -100,10 +97,10 @@ public class LevelGameManager : MonoBehaviour
             else if (Leaderboard.instance.GetEntryCount() >= 8)
                 Leaderboard.instance.AddScoreAtEnd(nameText, score);
             highscoreCanvas.SetActive(false);
-            
+
             gameOverMenuCanvas.SetActive(true);
             currentScore.text = ScoreManager.instance.GetCurrentScore().ToString();
-
+            
         }
 
     }
@@ -123,13 +120,14 @@ public class LevelGameManager : MonoBehaviour
         gameOverCanvas.SetActive(true);
         yield return new WaitForSeconds(2f);
         gameOverCanvas.SetActive(false);
+        LevelGenerator.instance.Restart();
         OnGameOver();
     }
 
     private void OnGameOver()
     {
         inGameUICanvas.SetActive(false);
-
+        nameInput.text = string.Empty;
         if ((Leaderboard.instance.GetEntryCount() < 8 && ScoreManager.instance.GetCurrentScore() != 0) ||
             (Leaderboard.instance.GetEntryCount() == 8 && ScoreManager.instance.GetCurrentScore() > Leaderboard.instance.GetLowestScore()))
         {
@@ -163,8 +161,9 @@ public class LevelGameManager : MonoBehaviour
         AudioManager.instance.PlaySFX(clickSFX);
         ScoreManager.instance.ResetLocalScore();
         LivesManager.instance.ResetLives();
+        StreakManager.instance.ResetScoreStreak();
         PlayerController.instance.StopPlayer();
-        LevelGenerator.instance.Restart();
+        //LevelGenerator.instance.Restart();
         PlayerController.instance.StartPlayer();
         PlayerController.instance.SetAniamtionSpeed(1);
         gameOverMenuCanvas.SetActive(false);
@@ -175,8 +174,9 @@ public class LevelGameManager : MonoBehaviour
     {
         ScoreManager.instance.ResetLocalScore();
         LivesManager.instance.ResetLives();
+        StreakManager.instance.ResetScoreStreak();
         PlayerController.instance.StopPlayer();
-        LevelGenerator.instance.Restart();
+        //LevelGenerator.instance.Restart();
         inGameUICanvas.SetActive(false);
         PlayerController.instance.TriggerAnimation("Jump");
         PlayerController.instance.SetAniamtionSpeed(1);

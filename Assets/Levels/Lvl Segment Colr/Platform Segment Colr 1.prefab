@@ -1038,7 +1038,6 @@ GameObject:
   - component: {fileID: 6560671735029389770}
   - component: {fileID: 4051491406615945466}
   - component: {fileID: 7252225459071407951}
-  - component: {fileID: 6019103369699883101}
   m_Layer: 0
   m_Name: Empty Platform Segment Colr
   m_TagString: Untagged
@@ -1139,76 +1138,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &6019103369699883101
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 194628674827135855}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 972ea89ac0ab9d04f9100390a2dbf8d3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  type: 0
-  customEntrance: {fileID: 0}
-  customExit: {fileID: 0}
-  customKeepUpright: 0
-  _customMainPath: -1
-  axis: 2
-  customPaths: []
-  objectProperties:
-  - transform: {fileID: 8599413818528713130}
-    localRotation: {x: 0, y: 0, z: 0, w: 1}
-    extrudedMesh: {fileID: 0}
-    extrusionSpriteVertices: []
-    extrusionSpriteUVs: []
-    extrusionSpriteRect:
-      serializedVersion: 2
-      x: 0
-      y: 0
-      width: 0
-      height: 0
-    extrudedCollisionMesh: {fileID: 0}
-    _extrusionSettings:
-      meshColliderHandling: 0
-      bendSpline: 0
-      boundsInclusion: -1
-      indexing: 0
-      applyRotation: 1
-      keepUpright: 0
-      upVector: {x: 0, y: 1, z: 0}
-      applyScale: 0
-      bendMesh: 1
-      bendSprite: 0
-      bendPolygonCollider: 0
-      applyMeshColors: 0
-    _settingsComponent: {fileID: 0}
-    overrideSettingsComponent: 0
-    meshFilter: {fileID: 6560671735029389770}
-    meshCollider: {fileID: 0}
-    spriteRenderer: {fileID: 0}
-    splineComputer: {fileID: 0}
-    editSplinePoints: []
-    colliders: []
-    _isRoot: 1
-  bounds:
-    center: {x: 0, y: 0.21654932, z: 0}
-    extents: {x: 6.225244, y: 0.49485946, z: 12.140003}
-    max: {x: 6.225244, y: 0.7114088, z: 12.140003}
-    min: {x: -6.225244, y: -0.27831015, z: -12.140003}
-    size: {x: 12.450488, y: 0.9897189, z: 24.280006}
-  builders: []
-  unpacked: 1
-  alwaysDraw: 0
-  drawGeneratedSpline: 1
-  drawGeneratedSamples: 1
-  drawSampleScale: 1
-  drawEntranceAndExit: 1
-  drawBounds: 1
-  drawCustomPaths: 1
-  editorChildCount: 0
 --- !u!1 &653184416951441508
 GameObject:
   m_ObjectHideFlags: 0
@@ -1700,7 +1629,6 @@ GameObject:
   - component: {fileID: 543802383402860636}
   - component: {fileID: 395212713251526830}
   - component: {fileID: 2330193778178706562}
-  - component: {fileID: 8743604527591044387}
   m_Layer: 0
   m_Name: Empty Platform Segment Colr
   m_TagString: Untagged
@@ -1801,77 +1729,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &8743604527591044387
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6499069496944323661}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 972ea89ac0ab9d04f9100390a2dbf8d3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  type: 0
-  customEntrance: {fileID: 0}
-  customExit: {fileID: 0}
-  customKeepUpright: 0
-  _customMainPath: -1
-  axis: 2
-  customPaths: []
-  objectProperties:
-  - transform: {fileID: 3281191577196012289}
-    localRotation: {x: 0, y: 0, z: 0, w: 1}
-    extrudedMesh: {fileID: 0}
-    extrusionSpriteVertices: []
-    extrusionSpriteUVs: []
-    extrusionSpriteRect:
-      serializedVersion: 2
-      x: 0
-      y: 0
-      width: 0
-      height: 0
-    extrudedCollisionMesh: {fileID: 0}
-    _extrusionSettings:
-      meshColliderHandling: 0
-      bendSpline: 0
-      boundsInclusion: -1
-      indexing: 0
-      applyRotation: 1
-      keepUpright: 0
-      upVector: {x: 0, y: 1, z: 0}
-      applyScale: 0
-      bendMesh: 1
-      bendSprite: 0
-      bendPolygonCollider: 0
-      applyMeshColors: 0
-    _settingsComponent: {fileID: 0}
-    overrideSettingsComponent: 0
-    meshFilter: {fileID: 543802383402860636}
-    meshCollider: {fileID: 0}
-    spriteRenderer: {fileID: 0}
-    splineComputer: {fileID: 0}
-    editSplinePoints: []
-    colliders: []
-    _isRoot: 1
-  bounds:
-    center: {x: 0, y: 0.21654932, z: -0.00000047683716}
-    extents: {x: 6.225244, y: 0.49485946, z: 12.140001}
-    max: {x: 6.225244, y: 0.7114088, z: 12.140001}
-    min: {x: -6.225244, y: -0.27831015, z: -12.140002}
-    size: {x: 12.450488, y: 0.9897189, z: 24.280003}
-  builders:
-  - {fileID: 0}
-  unpacked: 1
-  alwaysDraw: 0
-  drawGeneratedSpline: 1
-  drawGeneratedSamples: 1
-  drawSampleScale: 1
-  drawEntranceAndExit: 1
-  drawBounds: 1
-  drawCustomPaths: 1
-  editorChildCount: 0
 --- !u!1 &7303066216795442306
 GameObject:
   m_ObjectHideFlags: 0
