@@ -1,10 +1,6 @@
 using Dreamteck.Forever;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using Dreamteck.Splines;
-using FlightKit;
-using Cinemachine;
+
 
 [RequireComponent(typeof(LaneRunner))]
 public class PlayerController : MonoBehaviour
@@ -14,9 +10,9 @@ public class PlayerController : MonoBehaviour
     float speed = 10f;
     private bool _enableControls = false;
 
+    [SerializeField] GameObject characterPrefab;
     [SerializeField] Animator PlayerAnimator;
     [SerializeField] string animationSpeedMultiplierName;
-    [SerializeField] GameObject CountdownCanvas;
 
     public bool EnableControls { get => _enableControls; set => _enableControls = value; }
 
@@ -28,12 +24,15 @@ public class PlayerController : MonoBehaviour
 
         speed = runner.followSpeed;
         runner.followSpeed = 0f;
-        SetAniamtionSpeed(1);
+        
     }
 
     private void Start()
     {
+        GameObject gameCharacter = Instantiate(characterPrefab, this.gameObject.transform);
+        PlayerAnimator = gameCharacter.GetComponent<Animator>();
         //StartCoroutine(Countdown());
+        SetAniamtionSpeed(1);
         Debug.Log($"speed - {runner.followSpeed}");
     }
 
@@ -57,20 +56,6 @@ public class PlayerController : MonoBehaviour
         Debug.Log($"animation Speed: {PlayerAnimator.GetFloat("SpeedRate")}");
     }
 
-    //private IEnumerator Countdown()
-    //{
-    //    CountdownCanvas.SetActive(true);
-    //    CountdownCanvas.GetComponent<Animator>().enabled = true;
-    //    AudioManager.instance.PlaySFX(countdownClip);
-    //    yield return new WaitForSeconds(4f);
-    //    if (LevelGenerator.instance.ready)
-    //        runner.followSpeed = speed;
-    //    Debug.Log("Player Start Moving");
-    //    SetAniamtionSpeed(1);
-    //    CountdownCanvas.GetComponent<Animator>().enabled = false;
-    //    CountdownCanvas.SetActive(false);
-    //    AudioManager.instance.PlayBGSound(backgroundClip);
-    //}
 
     public void SetSpeed(float speed)
     {

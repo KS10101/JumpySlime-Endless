@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography.X509Certificates;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class ScoreManager : MonoBehaviour
@@ -64,4 +65,17 @@ public class ScoreManager : MonoBehaviour
     {
         ScoreTextField.text = score.ToString();
     }
+
+    public void SaveCoinsData()
+    {
+        float currentMaxCoins = PlayerPrefs.GetFloat("Coins") + CurrentScore;
+        PlayerPrefs.SetFloat("Coins", currentMaxCoins);
+        Debug.Log("Coins Saved in playerpref");
+    }
+
+    public float GetCoinsData()
+    {
+        return PlayerPrefs.GetFloat("Coins");
+    }
+
 }

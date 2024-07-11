@@ -42,7 +42,7 @@ public class StreakManager : MonoBehaviour
             multiplier ++;
             ScoreManager.instance.scoreMultiplier = multiplier;
             streakAnimator.gameObject.SetActive(true);
-            streakNum.text = multiplier.ToString();
+            streakNum.text = multiplier.ToString() + "X";
             streakAnimator.enabled = true;
             streakAnimator.SetTrigger("streak");
         }
