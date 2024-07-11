@@ -202,6 +202,7 @@ public class LevelGameManager : MonoBehaviour
     private void OpenStore()
     {
         AudioManager.instance.PlaySFX(clickSFX);
+        characterManager.instance.InitiateStoreItems();
         storeCanvas.SetActive(true);
     }
 
