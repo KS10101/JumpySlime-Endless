@@ -45,7 +45,7 @@ public class ItemStorePanel : MonoBehaviour
             scrollRect.horizontalNormalizedPosition -= scrollSpeed;
     }
 
-    private void ScrollRight()
+    public void ScrollRight()
     {
         if (scrollRect.horizontalNormalizedPosition < 1)
             scrollRect.horizontalNormalizedPosition += scrollSpeed;

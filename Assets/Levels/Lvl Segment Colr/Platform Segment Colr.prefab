@@ -793,7 +793,7 @@ MonoBehaviour:
   BaseMat: {fileID: 2100000, guid: 47f49393e609fa14693af30a536b6090, type: 2}
   RightOptionMat: {fileID: 2100000, guid: ffa62f77d2f909d4d8828f8b7be506ae, type: 2}
   WrongOptionMat: {fileID: 2100000, guid: 897e9ab553176244190d92766d313ce8, type: 2}
-  CorrectOptionPoints: 5
+  CorrectOptionPoints: 2
   WrongOptionPoints: 0
   answered: 0
   _minOperandA: 1

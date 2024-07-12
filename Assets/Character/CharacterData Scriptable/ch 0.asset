@@ -10,9 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ccbc410cbeffdfe4aae66dc238bb1ea3, type: 3}
-  m_Name: ch 3
+  m_Name: ch 0
   m_EditorClassIdentifier: 
+  CharID: 0
   charSprite: {fileID: 21300000, guid: a4f9805280fb42043a5628b225454685, type: 3}
-  price: 900
-  isUnlocked: 0
-  lockImg: {fileID: 1418021318000510409, guid: df4c998f7eb73c94d902f1dec37e810d, type: 3}
+  price: 0
+  isUnlocked: 1
+  isSelected: 1
+  characterPrefab: {fileID: 439672711413216303, guid: 2b6b06676442a8941bfeee481ceb591c, type: 3}

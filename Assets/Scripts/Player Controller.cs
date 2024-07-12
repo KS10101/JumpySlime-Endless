@@ -1,4 +1,5 @@
 using Dreamteck.Forever;
+using System;
 using UnityEngine;
 
 
@@ -6,11 +7,15 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public static PlayerController instance;
+
+    public delegate void GameEvents();
+    public static event GameEvents OnSwitchCharacter;
+
     LaneRunner runner;
     float speed = 10f;
     private bool _enableControls = false;
 
-    [SerializeField] GameObject characterPrefab;
+    GameObject GameChar;
     [SerializeField] Animator PlayerAnimator;
     [SerializeField] string animationSpeedMultiplierName;
 
@@ -21,22 +26,41 @@ public class PlayerController : MonoBehaviour
         if (instance == null)
             instance = this;
         runner = GetComponent<LaneRunner>();
-
         speed = runner.followSpeed;
         runner.followSpeed = 0f;
         
     }
 
+    private void OnEnable()
+    {
+        OnSwitchCharacter += InitPlayer;
+    }
+
+    private void OnDisable()
+    {
+        OnSwitchCharacter -= InitPlayer;
+    }
+
     private void Start()
     {
-        GameObject gameCharacter = Instantiate(characterPrefab, this.gameObject.transform);
-        PlayerAnimator = gameCharacter.GetComponent<Animator>();
+        SwitchCharacter();
         //StartCoroutine(Countdown());
         SetAniamtionSpeed(1);
         Debug.Log($"speed - {runner.followSpeed}");
     }
 
-    
+    public void SwitchCharacter() => OnSwitchCharacter?.Invoke();
+
+    private void InitPlayer()
+    {
+        if (GameChar != null)
+            Destroy(GameChar);
+        GameObject characterPrefab = CharacterManager.instance.GetSelectedCharacter();
+        GameChar = Instantiate(characterPrefab, this.gameObject.transform);
+        PlayerAnimator = GameChar.GetComponent<Animator>();
+        TriggerAnimation("Jump");
+    }
+
     public void StartPlayer()
     {
         TriggerAnimation("Jump");
@@ -89,6 +113,7 @@ public class PlayerController : MonoBehaviour
     public void TriggerAnimation(string animName)
     {
         PlayerAnimator.Play(animName);
+        SetAniamtionSpeed(1);
     }
 
     public void SetAniamtionSpeed(float rate)

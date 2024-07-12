@@ -31332,6 +31332,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BG_Audio: {fileID: 668452868}
   SFX_Audio: {fileID: 303451649}
+  default_BGM_clip: {fileID: 8300000, guid: f9701d6522d0eed4096213cf5c8641f3, type: 3}
+  default_SFX_clip: {fileID: 8300000, guid: de3110ebb8f90d740a470f305e1ba8e1, type: 3}
 --- !u!4 &911408449
 Transform:
   m_ObjectHideFlags: 0
@@ -32986,7 +32988,7 @@ MonoBehaviour:
   m_Content: {fileID: 1835452174}
   m_Horizontal: 1
   m_Vertical: 0
-  m_MovementType: 1
+  m_MovementType: 2
   m_Elasticity: 0.05
   m_Inertia: 1
   m_DecelerationRate: 0.135
@@ -34723,7 +34725,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.30980393, g: 0.7411765, b: 0.92549026, a: 0.69803923}
+  m_Color: {r: 0.30980393, g: 0.7411765, b: 0.92549026, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -75620,7 +75622,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7edc20082ddb32f4fa2ad12c40d631a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterPrefab: {fileID: 7165215625324667777, guid: f416fb395df5797419c6baf22fc9093f, type: 3}
   PlayerAnimator: {fileID: 0}
   animationSpeedMultiplierName: SpeedRate
 --- !u!65 &8835188587849636645

@@ -16,6 +16,8 @@ public class AudioManager : MonoBehaviour
 
     [SerializeField] private AudioSource BG_Audio;
     [SerializeField] private AudioSource SFX_Audio;
+    [SerializeField] private AudioClip default_BGM_clip;
+    [SerializeField] private AudioClip default_SFX_clip;
 
 
     private void Start()
@@ -34,17 +36,26 @@ public class AudioManager : MonoBehaviour
         SFX_Audio.volume = vol;
     }
 
-    public void PlayBGSound(AudioClip clip)
+    public void PlayBGSound(AudioClip clip = null)
     {
+        if (clip == null)
+            BG_Audio.clip = default_BGM_clip;
+        else
+            BG_Audio.clip = clip;
+
         BG_Audio.clip = clip;
         BG_Audio.loop = true;
         if (BG_Audio.clip != null)
             BG_Audio.Play();
     }
 
-    public void PlaySFX(AudioClip clip)
+    public void PlaySFX(AudioClip clip = null)
     {
-        SFX_Audio.clip = clip;
+        if (clip == null)
+            SFX_Audio.clip = default_SFX_clip;
+        else
+            SFX_Audio.clip = clip;
+
         SFX_Audio.loop = false;
         SFX_Audio.Play();
     }

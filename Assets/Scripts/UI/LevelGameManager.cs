@@ -126,7 +126,7 @@ public class LevelGameManager : MonoBehaviour
 
     private void OnGameOver()
     {
-        ScoreManager.instance.SaveCoinsData();
+        ScoreManager.instance.SaveCurrentCoinData();
         inGameUICanvas.SetActive(false);
         nameInput.text = string.Empty;
         if ((Leaderboard.instance.GetEntryCount() < 8 && ScoreManager.instance.GetCurrentScore() != 0) ||
