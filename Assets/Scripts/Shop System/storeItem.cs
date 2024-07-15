@@ -89,7 +89,7 @@ public class StoreItem : MonoBehaviour
             selectedButton.gameObject.SetActive(true);
             isSelected = true;
             CharacterManager.instance.SelectStoreItem(this.charID);
-            //PlayerController.instance.SwitchCharacter();
+            PlayerController.instance.SwitchCharacter();
         }
         AudioManager.instance.PlaySFX();
     }

@@ -89,16 +89,14 @@ public class CharacterManager : MonoBehaviour
     public void ActivateCharacter(Transform parentTransform)
     {
         if(parentTransform.childCount >= 1)
-        {
             DeactivateChar(parentTransform);
-        }
         
         SetAllCharacterActive(true);
-        string activeCharName = GetSelectedCharacter().gameObject.name;
+        string activeCharName = GetSelectedCharacter();
         //string activeCharName = "J_Slime_01";
         GameObject activeChar = GameObject.Find(activeCharName);
         Transform activeParent = parentTransform;
-        activeChar.transform.SetParent(activeParent, true);
+        activeChar.transform.SetParent(activeParent);
         SetAllCharacterActive(false);
 
     }
@@ -115,27 +113,61 @@ public class CharacterManager : MonoBehaviour
 
     public void DeactivateChar(Transform prevChar)
     {
-
         prevChar = prevChar.GetChild(0);
-        prevChar.gameObject.transform.SetParent(this.transform, true);
+        prevChar.gameObject.transform.SetParent(this.transform);
         prevChar.gameObject.SetActive(false);
 
     }
 
 
-
-    public GameObject GetSelectedCharacter()
+    public  string GetSelectedCharacter()
     {
-        GameObject CharPrefab = new GameObject();
+        string CharPrefab = "";
         for (int i = 0; i < CharList.Count; i++)
         {
             if (CharList[i].isSelected)
             {
-                CharPrefab = CharList[i].characterPrefab.gameObject;
+                CharPrefab = CharList[i].characterPrefab.gameObject.name;
                 break;
             }
         }
 
         return CharPrefab;
     }
+
+
+
+#if UNITY_EDITOR
+    [ContextMenu("Cache Char. prefab")]
+    public void CreateChildPrefabs()
+    {
+        DestroyPrefabs();
+
+        for (int i = 0; i < CharList.Count; i++)
+        {
+            GameObject prfab = (GameObject)UnityEditor.PrefabUtility.InstantiatePrefab(CharList[i].characterPrefab);
+            prfab.transform.parent = this.transform;
+            prfab.SetActive(false);
+        }
+
+    }
+
+    [ContextMenu("Destroy Cache")]
+    public void DestroyPrefabs()
+    {
+        int count = this.transform.childCount;
+        Debug.Log(count);
+        if (count <= 1) return;
+
+        while (count > 0)
+        {
+            if (this.transform.GetChild(1) != null)
+            {
+                DestroyImmediate(this.transform.GetChild(1).gameObject);
+
+            }
+            count--;
+        }
+    }
+#endif
 }

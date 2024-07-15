@@ -43,8 +43,7 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
-        CharacterManager.instance.ActivateCharacter(this.transform);
-        //SwitchCharacter();
+        SwitchCharacter();
         //StartCoroutine(Countdown());
         SetAnimationSpeed(1);
         Debug.Log($"speed - {runner.followSpeed}");
@@ -54,10 +53,11 @@ public class PlayerController : MonoBehaviour
 
     private void InitPlayer()
     {
-        if (GameChar != null)
-            Destroy(GameChar);
-        GameObject characterPrefab = CharacterManager.instance.GetSelectedCharacter();
-        GameChar = Instantiate(characterPrefab, this.gameObject.transform);
+        //GameObject characterPrefab = CharacterManager.instance.GetSelectedCharacter();
+        //GameChar = Instantiate(characterPrefab, this.gameObject.transform);
+        CharacterManager.instance.ActivateCharacter(this.transform);
+        GameChar = this.gameObject.transform.GetChild(0).gameObject;
+        GameChar.transform.localPosition = new Vector3(0, -1.1f, 0);
         PlayerAnimator = GameChar.GetComponent<Animator>();
         TriggerAnimation("Jump");
     }
