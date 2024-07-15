@@ -86,6 +86,44 @@ public class CharacterManager : MonoBehaviour
         RefreshItems();
     }
 
+    public void ActivateCharacter(Transform parentTransform)
+    {
+        if(parentTransform.childCount >= 1)
+        {
+            DeactivateChar(parentTransform);
+        }
+        
+        SetAllCharacterActive(true);
+        string activeCharName = GetSelectedCharacter().gameObject.name;
+        //string activeCharName = "J_Slime_01";
+        GameObject activeChar = GameObject.Find(activeCharName);
+        Transform activeParent = parentTransform;
+        activeChar.transform.SetParent(activeParent, true);
+        SetAllCharacterActive(false);
+
+    }
+
+    public void SetAllCharacterActive(bool state)
+    {
+        int childCount = transform.childCount;
+        for (int i = 1; i < childCount; i++)
+        {
+            this.gameObject.transform.GetChild(i).gameObject.SetActive(state);
+        }
+
+    }
+
+    public void DeactivateChar(Transform prevChar)
+    {
+
+        prevChar = prevChar.GetChild(0);
+        prevChar.gameObject.transform.SetParent(this.transform, true);
+        prevChar.gameObject.SetActive(false);
+
+    }
+
+
+
     public GameObject GetSelectedCharacter()
     {
         GameObject CharPrefab = new GameObject();

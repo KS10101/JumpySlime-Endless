@@ -43,9 +43,10 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
-        SwitchCharacter();
+        CharacterManager.instance.ActivateCharacter(this.transform);
+        //SwitchCharacter();
         //StartCoroutine(Countdown());
-        SetAniamtionSpeed(1);
+        SetAnimationSpeed(1);
         Debug.Log($"speed - {runner.followSpeed}");
     }
 
@@ -100,7 +101,7 @@ public class PlayerController : MonoBehaviour
         }
         Debug.Log($"speed : {runner.followSpeed}");
 
-        SetAniamtionSpeed(this.runner.followSpeed / 10);
+        SetAnimationSpeed(this.runner.followSpeed / 10);
     }
 
     public void StopPlayer()
@@ -113,10 +114,10 @@ public class PlayerController : MonoBehaviour
     public void TriggerAnimation(string animName)
     {
         PlayerAnimator.Play(animName);
-        SetAniamtionSpeed(1);
+        SetAnimationSpeed(1);
     }
 
-    public void SetAniamtionSpeed(float rate)
+    public void SetAnimationSpeed(float rate)
     {
         if (rate <= 2 && rate >= 0)
             PlayerAnimator?.SetFloat(animationSpeedMultiplierName, rate);

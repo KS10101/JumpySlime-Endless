@@ -166,7 +166,7 @@ public class LevelGameManager : MonoBehaviour
         PlayerController.instance.StopPlayer();
         //LevelGenerator.instance.Restart();
         PlayerController.instance.StartPlayer();
-        PlayerController.instance.SetAniamtionSpeed(1);
+        PlayerController.instance.SetAnimationSpeed(1);
         gameOverMenuCanvas.SetActive(false);
         inGameUICanvas.SetActive(true);
     }
@@ -180,7 +180,7 @@ public class LevelGameManager : MonoBehaviour
         //LevelGenerator.instance.Restart();
         inGameUICanvas.SetActive(false);
         PlayerController.instance.TriggerAnimation("Jump");
-        PlayerController.instance.SetAniamtionSpeed(1);
+        PlayerController.instance.SetAnimationSpeed(1);
     }
 
     private void BuildLeaderboard()
