@@ -146,7 +146,8 @@ public class Leaderboard : MonoBehaviour
 
     public ScoreCardEntry LoadScoresFromJSON()
     {
-        if (!PlayerPrefs.HasKey("ScoreCardEntries") || PlayerPrefs.GetString("ScoreCardEntries") == null) return null;
+        if (!PlayerPrefs.HasKey("ScoreCardEntries") || 
+            PlayerPrefs.GetString("ScoreCardEntries") == null) return null;
         
             
         string json = PlayerPrefs.GetString("ScoreCardEntries");

@@ -58,6 +58,9 @@ public class ItemStorePanel : MonoBehaviour
 
     private void CloseStore()
     {
+
+        CharacterManager.instance.SetCharacterState();
+        CharacterManager.instance.UpdateScriptableListDataState();
         storePanel.SetActive(false);
         AudioManager.instance.PlaySFX(clickSFX);
     }

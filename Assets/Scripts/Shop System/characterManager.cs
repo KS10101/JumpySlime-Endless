@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
+using System.Data;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class CharacterManager : MonoBehaviour
 {
@@ -9,6 +9,7 @@ public class CharacterManager : MonoBehaviour
     public List<CharacterData> CharList;
     [SerializeField] private GameObject storeItemPrefab;
     [SerializeField] private Transform storeItemContainer;
+    private List<CharacterState> charStateList = new List<CharacterState>();
     
     private void Awake()
     {
@@ -23,8 +24,11 @@ public class CharacterManager : MonoBehaviour
             CharList[i].CharID = i;
         }
 
+        UpdateCharStateList();
+
     }
 
+    // creates the Item cards in store UI panel and set data from scriptable
     public void InitiateStoreItems()
     {
         DeleteGeneratedItems();
@@ -33,6 +37,18 @@ public class CharacterManager : MonoBehaviour
         {
             GameObject item = Instantiate(storeItemPrefab, storeItemContainer);
             item.GetComponent<StoreItem>().Init(CharList[i]);
+        }
+    }
+
+    public void UpdateScriptableListDataState()
+    {
+        for(int i = 0; i < CharList.Count; i++)
+        {
+            if (charStateList[i].charID == CharList[i].CharID)
+            {
+                CharList[i].SetLock(charStateList[i].isUnlocked);
+                CharList[i].SetSelect(charStateList[i].isSelected);
+            }
         }
     }
 
@@ -50,8 +66,9 @@ public class CharacterManager : MonoBehaviour
 
     public void RefreshItems()
     {
-        DeleteGeneratedItems();
+
         InitiateStoreItems();
+        //SaveToJSON();
     }
 
     public void UpdateCharacterData(CharacterData charData)
@@ -119,7 +136,6 @@ public class CharacterManager : MonoBehaviour
 
     }
 
-
     public  string GetSelectedCharacter()
     {
         string CharPrefab = "";
@@ -135,6 +151,68 @@ public class CharacterManager : MonoBehaviour
         return CharPrefab;
     }
 
+    public void SetCharacterState()
+    {
+        charStateList.Clear();
+        for (int i = 0; i < CharList.Count; i++)
+        {
+            CharacterState charState = new CharacterState
+            {
+                charID = CharList[i].CharID,
+                isUnlocked = CharList[i].isUnlocked,
+                isSelected = CharList[i].isSelected
+            };
+
+            charStateList.Add(charState);
+        }
+
+        SaveToJSON();
+        //GetCharacterState();
+    }
+
+    public void GetCharacterState(CharacterStateList stateList)
+    {
+        this.charStateList = stateList.CharStateList;
+    }
+
+    public void SaveToJSON()
+    {
+        PlayerPrefs.DeleteKey("CharacterStates");
+        CharacterStateList StateList = new CharacterStateList { CharStateList = this.charStateList };
+        string json = JsonUtility.ToJson(StateList);
+        PlayerPrefs.SetString("CharacterStates", json);
+        PlayerPrefs.Save();
+        Debug.Log($"Saved to JSon" +
+            $"{PlayerPrefs.GetString("CharacterStates")}");
+    }
+
+    public CharacterStateList LoadFromJSON()
+    {
+        if (!PlayerPrefs.HasKey("CharacterStates") || 
+            PlayerPrefs.GetString("CharacterStates") == null) return null;
+
+        string json = PlayerPrefs.GetString("CharacterStates");
+        CharacterStateList stateList = JsonUtility.FromJson<CharacterStateList>(json);
+
+        return stateList;
+    }
+
+    public void UpdateCharStateList()
+    {
+        CharacterStateList statelist = LoadFromJSON();
+        
+        if(statelist == null)
+        {
+            SetCharacterState();
+        }
+        else
+        {
+            GetCharacterState(statelist);
+            UpdateScriptableListDataState();
+        }
+
+    }
+    
 
 
 #if UNITY_EDITOR
@@ -170,4 +248,17 @@ public class CharacterManager : MonoBehaviour
         }
     }
 #endif
+}
+
+public class CharacterStateList
+{
+    public List<CharacterState> CharStateList;
+}
+
+[System.Serializable]
+public class CharacterState
+{
+    public int charID;
+    public bool isUnlocked;
+    public bool isSelected;
 }
