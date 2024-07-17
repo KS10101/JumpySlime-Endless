@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class StoreItem : MonoBehaviour
+public class CharStoreItem : MonoBehaviour
 {
     //public string charName;
     public int charID;
@@ -75,7 +75,7 @@ public class StoreItem : MonoBehaviour
             isUnlocked = true;
             CharacterManager.instance.BuyStoreitem(this.charID);
             ScoreManager.instance.SaveCoinsData(coins - price);
-            ItemStorePanel.instance.UpdateCoinText(ScoreManager.instance.GetCoinsData());
+            CharacterSelectPanel.instance.UpdateCoinText(ScoreManager.instance.GetCoinsData());
         }
         AudioManager.instance.PlaySFX();
     }

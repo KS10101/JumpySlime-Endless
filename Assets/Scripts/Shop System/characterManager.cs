@@ -34,7 +34,7 @@ public class CharacterManager : MonoBehaviour
         for(int i=0 ; i<CharList.Count ; i++)
         {
             GameObject item = Instantiate(storeItemPrefab, storeItemContainer);
-            item.GetComponent<StoreItem>().Init(CharList[i]);
+            item.GetComponent<CharStoreItem>().Init(CharList[i]);
         }
     }
 

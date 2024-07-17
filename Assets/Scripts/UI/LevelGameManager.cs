@@ -1,5 +1,6 @@
 using Dreamteck.Forever;
 using System.Collections;
+using System.Diagnostics.Contracts;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -29,6 +30,7 @@ public class LevelGameManager : MonoBehaviour
     [SerializeField] private GameObject leaderboardCanvas;
     [SerializeField] private GameObject settingsCanvas;
     [SerializeField] private GameObject characterSelectCanvas;
+    [SerializeField] private GameObject storeCanvas;
 
     [SerializeField] private TextMeshProUGUI currentScore;
     [SerializeField] private TextMeshProUGUI highScore;
@@ -60,7 +62,8 @@ public class LevelGameManager : MonoBehaviour
         leadboardButton.onClick.AddListener(BuildLeaderboard);
         GOLeadboardButton.onClick.AddListener(BuildLeaderboard);
         settingsButton.onClick.AddListener(OpenSettings);
-        characterButton.onClick.AddListener(OpenStore);
+        characterButton.onClick.AddListener(OpenCharacterSelect);
+        storeButton.onClick.AddListener(OpenShop);
         MainMenuButton.onClick.AddListener(GotoMainMenu);
         ExitButton.onClick.AddListener(ExitGame);
     }
@@ -73,7 +76,8 @@ public class LevelGameManager : MonoBehaviour
         leadboardButton.onClick.RemoveListener(BuildLeaderboard);
         GOLeadboardButton.onClick.RemoveListener(BuildLeaderboard);
         settingsButton.onClick.RemoveListener(OpenSettings);
-        characterButton.onClick.RemoveListener(OpenStore);
+        characterButton.onClick.RemoveListener(OpenCharacterSelect);
+        storeButton.onClick.RemoveListener(OpenShop);
         MainMenuButton.onClick.RemoveListener(GotoMainMenu);
         ExitButton.onClick.RemoveListener(ExitGame);
     }
@@ -200,13 +204,21 @@ public class LevelGameManager : MonoBehaviour
         settingsCanvas.SetActive(true);
     }
 
-    private void OpenStore()
+    private void OpenCharacterSelect()
     {
         AudioManager.instance.PlaySFX(clickSFX);
         CharacterManager.instance.UpdateCharStateList();
         CharacterManager.instance.InitiateStoreItems();
-        ItemStorePanel.instance.UpdateCoinText(ScoreManager.instance.GetCoinsData());
+        CharacterSelectPanel.instance.UpdateCoinText(ScoreManager.instance.GetCoinsData());
         characterSelectCanvas.SetActive(true);
+    }
+
+    private void OpenShop()
+    {
+        AudioManager.instance.PlaySFX(clickSFX);
+        StoreItemManager.instance.GenerateStoreItems();
+        StorePanel.instance.UpdateCoinText(ScoreManager.instance.GetCoinsData());
+        storeCanvas.SetActive(true);
     }
 
     private void GotoMainMenu()

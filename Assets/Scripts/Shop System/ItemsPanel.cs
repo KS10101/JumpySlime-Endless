@@ -4,9 +4,9 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ItemStorePanel : MonoBehaviour
+[System.Serializable]
+public class ItemsPanel : MonoBehaviour
 {
-    public static ItemStorePanel instance;
     [SerializeField] private ScrollRect scrollRect;
     [SerializeField] private TextMeshProUGUI coinsAmountText;
 
@@ -18,12 +18,6 @@ public class ItemStorePanel : MonoBehaviour
     [SerializeField] private AudioClip clickSFX;
 
     [SerializeField] private float scrollSpeed;
-
-    private void Awake()
-    {
-        if (instance == null)
-            instance = this;
-    }
 
     private void OnEnable()
     {
@@ -39,9 +33,9 @@ public class ItemStorePanel : MonoBehaviour
         ScrollRightBut.onClick.RemoveListener(ScrollRight);
     }
 
-    private void ScrollLeft()
+    public void ScrollLeft()
     {
-        if(scrollRect.horizontalNormalizedPosition > 0)
+        if (scrollRect.horizontalNormalizedPosition > 0)
             scrollRect.horizontalNormalizedPosition -= scrollSpeed;
     }
 
@@ -56,12 +50,10 @@ public class ItemStorePanel : MonoBehaviour
         coinsAmountText.text = coins.ToString();
     }
 
-    private void CloseStore()
+    public virtual void CloseStore()
     {
-
-        CharacterManager.instance.SetCharacterState();
-        CharacterManager.instance.UpdateScriptableListDataState();
         storePanel.SetActive(false);
         AudioManager.instance.PlaySFX(clickSFX);
     }
 }
+
