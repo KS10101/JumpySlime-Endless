@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Data;
 using UnityEngine;
 
 public class CharacterManager : MonoBehaviour
@@ -25,7 +24,6 @@ public class CharacterManager : MonoBehaviour
         }
 
         UpdateCharStateList();
-
     }
 
     // creates the Item cards in store UI panel and set data from scriptable
@@ -50,6 +48,29 @@ public class CharacterManager : MonoBehaviour
                 CharList[i].SetSelect(charStateList[i].isSelected);
             }
         }
+    }
+
+    private void HandleDataMismatch()
+    {
+        if(CharList.Count > charStateList.Count)
+        {
+            int diff = CharList.Count - charStateList.Count;
+            for(int i = charStateList.Count; i < CharList.Count; i++)
+            {
+                if (CharList[i] != null)
+                {
+                    CharacterState charState = new CharacterState
+                    {
+                        charID = CharList[i].CharID,
+                        isUnlocked = CharList[i].isUnlocked,
+                        isSelected = CharList[i].isSelected
+                    };
+
+                    charStateList.Add(charState);
+                }
+            }
+        }
+        SaveToJSON();
     }
 
     public void DeleteGeneratedItems()
@@ -208,9 +229,9 @@ public class CharacterManager : MonoBehaviour
         else
         {
             GetCharacterState(statelist);
+            HandleDataMismatch();
             UpdateScriptableListDataState();
         }
-
     }
     
 
@@ -237,7 +258,7 @@ public class CharacterManager : MonoBehaviour
         Debug.Log(count);
         if (count <= 1) return;
 
-        while (count > 0)
+        while (count > 1)
         {
             if (this.transform.GetChild(1) != null)
             {
