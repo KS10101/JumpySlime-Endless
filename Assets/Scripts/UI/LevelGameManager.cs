@@ -15,6 +15,7 @@ public class LevelGameManager : MonoBehaviour
     [SerializeField] private Button submitButton;
     [SerializeField] private Button settingsButton;
     [SerializeField] private Button storeButton;
+    [SerializeField] private Button characterButton;
     [SerializeField] private Button MainMenuButton;
     [SerializeField] private Button ExitButton;
 
@@ -27,7 +28,7 @@ public class LevelGameManager : MonoBehaviour
     [SerializeField] private GameObject highscoreCanvas;
     [SerializeField] private GameObject leaderboardCanvas;
     [SerializeField] private GameObject settingsCanvas;
-    [SerializeField] private GameObject storeCanvas;
+    [SerializeField] private GameObject characterSelectCanvas;
 
     [SerializeField] private TextMeshProUGUI currentScore;
     [SerializeField] private TextMeshProUGUI highScore;
@@ -59,7 +60,7 @@ public class LevelGameManager : MonoBehaviour
         leadboardButton.onClick.AddListener(BuildLeaderboard);
         GOLeadboardButton.onClick.AddListener(BuildLeaderboard);
         settingsButton.onClick.AddListener(OpenSettings);
-        storeButton.onClick.AddListener(OpenStore);
+        characterButton.onClick.AddListener(OpenStore);
         MainMenuButton.onClick.AddListener(GotoMainMenu);
         ExitButton.onClick.AddListener(ExitGame);
     }
@@ -72,7 +73,7 @@ public class LevelGameManager : MonoBehaviour
         leadboardButton.onClick.RemoveListener(BuildLeaderboard);
         GOLeadboardButton.onClick.RemoveListener(BuildLeaderboard);
         settingsButton.onClick.RemoveListener(OpenSettings);
-        storeButton.onClick.RemoveListener(OpenStore);
+        characterButton.onClick.RemoveListener(OpenStore);
         MainMenuButton.onClick.RemoveListener(GotoMainMenu);
         ExitButton.onClick.RemoveListener(ExitGame);
     }
@@ -205,7 +206,7 @@ public class LevelGameManager : MonoBehaviour
         CharacterManager.instance.UpdateCharStateList();
         CharacterManager.instance.InitiateStoreItems();
         ItemStorePanel.instance.UpdateCoinText(ScoreManager.instance.GetCoinsData());
-        storeCanvas.SetActive(true);
+        characterSelectCanvas.SetActive(true);
     }
 
     private void GotoMainMenu()
