@@ -72,8 +72,8 @@ public class Leaderboard : MonoBehaviour
 
         if (ScoreEntriesArray == null) return;
         // if score card entries is not null 
-        Debug.Log($"Array Size: {ScoreEntriesArray.Count()}");
-        for (int i = 0; i < ScoreEntriesArray.Count(); i++)
+        Debug.Log($"Array Size: {ScoreEntriesArray.Length}");
+        for (int i = 0; i < ScoreEntriesArray.Length; i++)
         {
             GameObject entry = Instantiate(EntryPrefab, ScoreCardsContainer);
             entry.SetActive(true);

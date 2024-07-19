@@ -33,8 +33,7 @@ public class ShopItem : MonoBehaviour
     private void BuyItem()
     {
         Debug.Log("BUY");
-        int coins = ScoreManager.instance.GetCoinsData() + this.numberOfCoins;
-        ScoreManager.instance.SaveCoinsData(coins);
+        ScoreManager.instance.AddnSaveCoinsData(this.numberOfCoins);
         StorePanel.instance.UpdateCoinText(ScoreManager.instance.GetCoinsData());
     }
 }

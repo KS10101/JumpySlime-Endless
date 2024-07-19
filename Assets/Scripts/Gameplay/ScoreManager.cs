@@ -72,6 +72,12 @@ public class ScoreManager : MonoBehaviour
         SaveCoinsData(currentMaxCoins);
     }
 
+    public void AddnSaveCoinsData(int coin)
+    {
+        int newCoins = ScoreManager.instance.GetCoinsData() + coin;
+        ScoreManager.instance.SaveCoinsData(newCoins);
+    }
+
     public void SaveCoinsData(int coins)
     {
         PlayerPrefs.SetInt("Coins", coins);

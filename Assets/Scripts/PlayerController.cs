@@ -74,8 +74,11 @@ public class PlayerController : MonoBehaviour
     {
         if (_enableControls)
         {
-            if (Input.GetKeyDown(KeyCode.LeftArrow)) runner.lane--;
-            if (Input.GetKeyDown(KeyCode.RightArrow)) runner.lane++;
+            if (Input.GetKeyDown(KeyCode.LeftArrow) || 
+                Input.GetKeyDown(KeyCode.A)) runner.lane--;
+
+            if (Input.GetKeyDown(KeyCode.RightArrow) || 
+                Input.GetKeyDown(KeyCode.D)) runner.lane++;
         }
 
         Debug.Log($"animation Speed: {PlayerAnimator.GetFloat("SpeedRate")}");

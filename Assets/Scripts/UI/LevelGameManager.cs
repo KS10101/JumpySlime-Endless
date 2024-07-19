@@ -45,6 +45,8 @@ public class LevelGameManager : MonoBehaviour
     {
         if (instance == null)
             instance = this;
+
+        Application.targetFrameRate = 120;
     }
 
     private void Start()
@@ -201,6 +203,7 @@ public class LevelGameManager : MonoBehaviour
     private void OpenSettings()
     {
         AudioManager.instance.PlaySFX(clickSFX);
+        GameSettings.instance.UpdateSettings();
         settingsCanvas.SetActive(true);
     }
 

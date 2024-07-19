@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CharID: 6
   charSprite: {fileID: 21300000, guid: 09b7feed6bc455a46b28d935f23f4388, type: 3}
-  price: 1000
-  isUnlocked: 1
+  price: 3000
+  isUnlocked: 0
   isSelected: 0
   characterPrefab: {fileID: 8044369893814700035, guid: 088e23ec7c2cbfc488bc593c3fe832ec, type: 3}
